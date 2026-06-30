@@ -3,3 +3,5 @@ uvicorn[standard]==0.24.0
 python-dotenv==1.0.0
 python-multipart==0.0.6
 pydantic-settings==2.5.0
+langchain-community>=0.2.0
+langchain-text-splitters>=0.2.0

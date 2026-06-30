@@ -1,8 +1,7 @@
 from fastapi import FastAPI
 from dotenv import load_dotenv
-load_dotenv(".env")
-
-from src.routes import base
+load_dotenv("src/.env")
+from src.routes import base,data
 
 
 
@@ -10,9 +9,11 @@ from src.routes import base
 app = FastAPI()
 
 app.include_router(base.base_router)
+app.include_router(data.data_router)
 
-
-
+@app.get("/")
+def home():
+    return {"message": "SmartDesk AI API is running"}
 
 
 
