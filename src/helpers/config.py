@@ -9,3 +9,9 @@ class Settings(BaseSettings):
     VERSION:str
     OPEN_API_KEYS:str
     FILE_DEFAULT_CHUNK_SIZE:int = 1024 * 1024  # 1 MB
+    MONGODB_URL:str
+    MONGODB:str
+
+
+def get_settings():
+    return Settings()

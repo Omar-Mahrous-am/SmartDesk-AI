@@ -5,3 +5,5 @@ python-multipart==0.0.6
 pydantic-settings==2.5.0
 langchain-community>=0.2.0
 langchain-text-splitters>=0.2.0
+motor==3.4.0
+pydantic>=2.7.4

@@ -1,0 +1,15 @@
+services:
+  mongodb:
+    image: mongo:7-jammy
+    container_name: mongodb
+    ports:
+      - "27007:27017"
+    volumes:
+      - ./mongodb:/data/db
+    restart: always
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
