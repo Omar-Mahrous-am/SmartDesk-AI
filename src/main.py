@@ -13,7 +13,7 @@ from src.helpers import config
 
 app = FastAPI()
 
-@app.on_event("start_up")
+@app.on_event("startup")
 async def start_up():
     settings = config.get_settings()
     app.mongodb_client = AsyncIOMotorClient(settings.MONGODB_URL)
