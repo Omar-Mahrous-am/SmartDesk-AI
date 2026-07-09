@@ -20,10 +20,40 @@ class ProjectModel(BaseDataModel):
                 "project_id"==project_id
 
             )
-            if record:
-                return record
-            else:
-                return await self.create_project(project)
+            if record is None:
+                project=project(project_id=project_id)
+                project=await self.create_project(project)
+                return project
+            
+            return project(**record)
+    
+
+    async def get_all_projects(self,page:int=1,page_size:int=10):
+
+        #count_docs
+
+        total_documents= await self.collection.count_documents({})
+
+        total_pages=total_documents // page_size
+
+        if total_documents%page_size >0:
+            total_pages+=1
+
+        
+        cursor=self.collection.find().skip((   page-1)*page_size).limit(page_size)
+        
+
+        projects=[]
+
+        async for doc in cursor:
+            projects.append(project(**doc))
+
+        
+
+        return projects ,total_pages
+
+                
+            
 
         
 
