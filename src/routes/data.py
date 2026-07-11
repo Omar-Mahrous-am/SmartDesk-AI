@@ -1,3 +1,6 @@
+from aiofiles import tempfile
+from aiofiles import tempfile
+from aiofiles import tempfile
 from fastapi import APIRouter, File, UploadFile, status,Request
 from fastapi.responses import JSONResponse
 import os
@@ -8,6 +11,8 @@ from src.models.enums.ResponseSignal import ResponseSignal
 from src.schemas.data import ProcessRequest
 from src.helpers.config import Settings
 from src.models.ProjectModel import ProjectModel
+from src.models.db_schemas import DataChunk
+from src.models.ChunkModek import ChunkModel
 
 
 logger = logging.getLogger(__name__)
@@ -21,7 +26,7 @@ data_router = APIRouter(prefix="/api/v1",
 async def upload_file(request:Request,  project_id: str, file: UploadFile = File(...)):
 
     
-    project_model=ProjectModel(db_client=request.app.db_client)
+    project_model=ProjectModel(db_client=request.app.mongodb)
     project=await project_model.get_project_or_create_one(project_id=project_id)
 
 
@@ -55,11 +60,21 @@ async def upload_file(request:Request,  project_id: str, file: UploadFile = File
 
 
 @data_router.post("/process/{project_id}")
-def process_file_endpoint(project_id: str, process_request: ProcessRequest):
+async def process_file_endpoint(request:Request,project_id: str, process_request: ProcessRequest):
 
     project_controller = ProjectController()
     project_dir = project_controller.get_project_path(project_id)
     file_path = os.path.join(project_dir, process_request.file_id)
+    do_reset=process_request.do_reset
+
+    
+
+    project_model=ProjectModel(db_client=request.app.mongodb)
+    project=await project_model.get_project_or_create_one(project_id=project_id)
+
+ 
+
+
 
     if not os.path.exists(file_path):
         return {"status": ResponseSignal.FILE_PROCESSING_FAILED.value,
@@ -77,3 +92,33 @@ def process_file_endpoint(project_id: str, process_request: ProcessRequest):
     else:
         return {"status": ResponseSignal.FILE_PROCESSING_FAILED.value,
                 "data": []}
+
+
+        file_chunks_records=[
+        DataChunk(
+         chunk_content=chunck.page_content,
+         chunk_order=i+1,
+         chunk_metadata=chunck.metadata,
+         chunk_project_id=project.id
+
+        )
+        for i,chunck in enumerate(chunks)
+    ]
+
+    chunk_model=ChunkModel(db_client=request.app.mongodb)
+
+    if do_reset==1:
+        await chunk_model.delete_chunks_by_project_id(project._id) 
+
+    
+
+    no_of_records=await chunk_model.insert_many_chunks(file_chunks_records)
+
+
+    return JSONResponse(content={"signal":ResponseSignal.FILE_PROCESSED_SUCCESS.value,"inserted_chunks":no_of_records})
+
+
+
+
+
+    

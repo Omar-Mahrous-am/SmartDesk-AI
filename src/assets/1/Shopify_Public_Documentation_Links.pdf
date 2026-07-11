@@ -1,0 +1,931 @@
+%PDF-1.4
+%“Œ‹ž ReportLab Generated PDF document http://www.reportlab.com
+1 0 obj
+<<
+/F1 2 0 R /F2 3 0 R /F3 4 0 R
+>>
+endobj
+2 0 obj
+<<
+/BaseFont /Helvetica /Encoding /WinAnsiEncoding /Name /F1 /Subtype /Type1 /Type /Font
+>>
+endobj
+3 0 obj
+<<
+/BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding /Name /F2 /Subtype /Type1 /Type /Font
+>>
+endobj
+4 0 obj
+<<
+/BaseFont /Helvetica-Oblique /Encoding /WinAnsiEncoding /Name /F3 /Subtype /Type1 /Type /Font
+>>
+endobj
+5 0 obj
+<<
+/Contents 105 0 R /MediaBox [ 0 0 612 792 ] /Parent 104 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
+>>
+endobj
+6 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com)
+>> /Border [ 0 0 0 ] /Rect [ 98 641.55 216.93 653.55 ] /Subtype /Link /Type /Annot
+>>
+endobj
+7 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual)
+>> /Border [ 0 0 0 ] /Rect [ 98 605.55 206.94 617.55 ] /Subtype /Link /Type /Annot
+>>
+endobj
+8 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://community.shopify.com)
+>> /Border [ 0 0 0 ] /Rect [ 98 569.55 221.36 581.55 ] /Subtype /Link /Type /Annot
+>>
+endobj
+9 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://www.shopify.com/blog)
+>> /Border [ 0 0 0 ] /Rect [ 98 533.55 154.14 545.55 ] /Subtype /Link /Type /Annot
+>>
+endobj
+10 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://status.shopify.com)
+>> /Border [ 0 0 0 ] /Rect [ 98 497.55 188.61 509.55 ] /Subtype /Link /Type /Annot
+>>
+endobj
+11 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/your-account/faq)
+>> /Border [ 0 0 0 ] /Rect [ 98 365.95 195.82 377.95 ] /Subtype /Link /Type /Annot
+>>
+endobj
+12 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/your-account/billing/faq)
+>> /Border [ 0 0 0 ] /Rect [ 98 329.95 148.01 341.95 ] /Subtype /Link /Type /Annot
+>>
+endobj
+13 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/shipping/faq)
+>> /Border [ 0 0 0 ] /Rect [ 98 293.95 160.25 305.95 ] /Subtype /Link /Type /Annot
+>>
+endobj
+14 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/payments/faq)
+>> /Border [ 0 0 0 ] /Rect [ 98 257.95 165.8 269.95 ] /Subtype /Link /Type /Annot
+>>
+endobj
+15 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/domains/faq)
+>> /Border [ 0 0 0 ] /Rect [ 98 221.95 160.79 233.95 ] /Subtype /Link /Type /Annot
+>>
+endobj
+16 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/taxes/faq)
+>> /Border [ 0 0 0 ] /Rect [ 98 185.95 148.57 197.95 ] /Subtype /Link /Type /Annot
+>>
+endobj
+17 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/checkout-settings/refund-privacy-tos)
+>> /Border [ 0 0 0 ] /Rect [ 98 53.6 201.93 65.6 ] /Subtype /Link /Type /Annot
+>>
+endobj
+18 0 obj
+<<
+/Annots [ 6 0 R 7 0 R 8 0 R 9 0 R 10 0 R 11 0 R 12 0 R 13 0 R 14 0 R 15 0 R 
+  16 0 R 17 0 R ] /Contents 106 0 R /MediaBox [ 0 0 612 792 ] /Parent 104 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 
+  /Trans <<
+
+>> /Type /Page
+>>
+endobj
+19 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://www.shopify.com/legal/privacy)
+>> /Border [ 0 0 0 ] /Rect [ 98 702.75 160.23 714.75 ] /Subtype /Link /Type /Annot
+>>
+endobj
+20 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://www.shopify.com/legal/terms)
+>> /Border [ 0 0 0 ] /Rect [ 98 666.75 173.57 678.75 ] /Subtype /Link /Type /Annot
+>>
+endobj
+21 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://www.shopify.com/legal/aup)
+>> /Border [ 0 0 0 ] /Rect [ 98 630.75 197.48 642.75 ] /Subtype /Link /Type /Annot
+>>
+endobj
+22 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://www.shopify.com/legal/api-terms)
+>> /Border [ 0 0 0 ] /Rect [ 98 594.75 192.47 606.75 ] /Subtype /Link /Type /Annot
+>>
+endobj
+23 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://www.shopify.com/legal/partners)
+>> /Border [ 0 0 0 ] /Rect [ 98 558.75 223.6 570.75 ] /Subtype /Link /Type /Annot
+>>
+endobj
+24 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://shopify.dev/docs)
+>> /Border [ 0 0 0 ] /Rect [ 98 427.15 205.26 439.15 ] /Subtype /Link /Type /Annot
+>>
+endobj
+25 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://shopify.dev/docs/api)
+>> /Border [ 0 0 0 ] /Rect [ 98 391.15 163.03 403.15 ] /Subtype /Link /Type /Annot
+>>
+endobj
+26 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://shopify.dev/docs/api/admin)
+>> /Border [ 0 0 0 ] /Rect [ 98 355.15 145.24 367.15 ] /Subtype /Link /Type /Annot
+>>
+endobj
+27 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://shopify.dev/docs/api/storefront)
+>> /Border [ 0 0 0 ] /Rect [ 98 319.15 160.81 331.15 ] /Subtype /Link /Type /Annot
+>>
+endobj
+28 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://shopify.dev/docs/api/admin-graphql)
+>> /Border [ 0 0 0 ] /Rect [ 98 283.15 158.03 295.15 ] /Subtype /Link /Type /Annot
+>>
+endobj
+29 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://shopify.dev/docs/api/admin-rest)
+>> /Border [ 0 0 0 ] /Rect [ 98 247.15 143.57 259.15 ] /Subtype /Link /Type /Annot
+>>
+endobj
+30 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://shopify.dev/docs/api/webhooks)
+>> /Border [ 0 0 0 ] /Rect [ 98 211.15 145.24 223.15 ] /Subtype /Link /Type /Annot
+>>
+endobj
+31 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://shopify.dev/docs/api/liquid)
+>> /Border [ 0 0 0 ] /Rect [ 98 175.15 173.59 187.15 ] /Subtype /Link /Type /Annot
+>>
+endobj
+32 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://shopify.dev/docs/themes)
+>> /Border [ 0 0 0 ] /Rect [ 98 43.55 204.15 55.55 ] /Subtype /Link /Type /Annot
+>>
+endobj
+33 0 obj
+<<
+/Annots [ 19 0 R 20 0 R 21 0 R 22 0 R 23 0 R 24 0 R 25 0 R 26 0 R 27 0 R 28 0 R 
+  29 0 R 30 0 R 31 0 R 32 0 R ] /Contents 107 0 R /MediaBox [ 0 0 612 792 ] /Parent 104 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 
+  /Trans <<
+
+>> /Type /Page
+>>
+endobj
+34 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://shopify.dev/docs/themes/tools/theme-kit)
+>> /Border [ 0 0 0 ] /Rect [ 98 702.75 143.57 714.75 ] /Subtype /Link /Type /Annot
+>>
+endobj
+35 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://shopify.dev/docs/themes/tools/cli)
+>> /Border [ 0 0 0 ] /Rect [ 98 666.75 203.04 678.75 ] /Subtype /Link /Type /Annot
+>>
+endobj
+36 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://shopify.dev/docs/api/liquid)
+>> /Border [ 0 0 0 ] /Rect [ 98 630.75 176.92 642.75 ] /Subtype /Link /Type /Annot
+>>
+endobj
+37 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://shopify.dev/docs/themes/architecture)
+>> /Border [ 0 0 0 ] /Rect [ 98 594.75 185.25 606.75 ] /Subtype /Link /Type /Annot
+>>
+endobj
+38 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://shopify.dev/docs/themes/settings)
+>> /Border [ 0 0 0 ] /Rect [ 98 558.75 168.03 570.75 ] /Subtype /Link /Type /Annot
+>>
+endobj
+39 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://shopify.dev/docs/apps)
+>> /Border [ 0 0 0 ] /Rect [ 98 427.15 190.82 439.15 ] /Subtype /Link /Type /Annot
+>>
+endobj
+40 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://shopify.dev/docs/apps/getting-started)
+>> /Border [ 0 0 0 ] /Rect [ 98 391.15 185.83 403.15 ] /Subtype /Link /Type /Annot
+>>
+endobj
+41 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://shopify.dev/docs/apps/auth)
+>> /Border [ 0 0 0 ] /Rect [ 98 355.15 181.94 367.15 ] /Subtype /Link /Type /Annot
+>>
+endobj
+42 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://shopify.dev/docs/apps/billing)
+>> /Border [ 0 0 0 ] /Rect [ 98 319.15 145.24 331.15 ] /Subtype /Link /Type /Annot
+>>
+endobj
+43 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://shopify.dev/docs/apps/distribution)
+>> /Border [ 0 0 0 ] /Rect [ 98 283.15 168.58 295.15 ] /Subtype /Link /Type /Annot
+>>
+endobj
+44 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://shopify.dev/docs/apps/app-bridge)
+>> /Border [ 0 0 0 ] /Rect [ 98 247.15 183.6 259.15 ] /Subtype /Link /Type /Annot
+>>
+endobj
+45 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://shopify.dev/docs/apps/embedded)
+>> /Border [ 0 0 0 ] /Rect [ 98 211.15 171.93 223.15 ] /Subtype /Link /Type /Annot
+>>
+endobj
+46 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/intro-to-shopify)
+>> /Border [ 0 0 0 ] /Rect [ 98 79.55 193.61 91.55 ] /Subtype /Link /Type /Annot
+>>
+endobj
+47 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/products)
+>> /Border [ 0 0 0 ] /Rect [ 98 42.8 190.82 54.8 ] /Subtype /Link /Type /Annot
+>>
+endobj
+48 0 obj
+<<
+/Annots [ 34 0 R 35 0 R 36 0 R 37 0 R 38 0 R 39 0 R 40 0 R 41 0 R 42 0 R 43 0 R 
+  44 0 R 45 0 R 46 0 R 47 0 R ] /Contents 108 0 R /MediaBox [ 0 0 612 792 ] /Parent 104 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 
+  /Trans <<
+
+>> /Type /Page
+>>
+endobj
+49 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/products/collections)
+>> /Border [ 0 0 0 ] /Rect [ 98 702.75 146.9 714.75 ] /Subtype /Link /Type /Annot
+>>
+endobj
+50 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/orders)
+>> /Border [ 0 0 0 ] /Rect [ 98 666 186.35 678 ] /Subtype /Link /Type /Annot
+>>
+endobj
+51 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/payments)
+>> /Border [ 0 0 0 ] /Rect [ 98 630.75 171.37 642.75 ] /Subtype /Link /Type /Annot
+>>
+endobj
+52 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/payments/shopify-payments)
+>> /Border [ 0 0 0 ] /Rect [ 98 594.75 178.59 606.75 ] /Subtype /Link /Type /Annot
+>>
+endobj
+53 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/shipping)
+>> /Border [ 0 0 0 ] /Rect [ 98 558 185.25 570 ] /Subtype /Link /Type /Annot
+>>
+endobj
+54 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/checkout-settings/shipping-rates)
+>> /Border [ 0 0 0 ] /Rect [ 98 522.75 194.72 534.75 ] /Subtype /Link /Type /Annot
+>>
+endobj
+55 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/taxes)
+>> /Border [ 0 0 0 ] /Rect [ 98 486.75 187.48 498.75 ] /Subtype /Link /Type /Annot
+>>
+endobj
+56 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/marketing)
+>> /Border [ 0 0 0 ] /Rect [ 98 450.75 169.13 462.75 ] /Subtype /Link /Type /Annot
+>>
+endobj
+57 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/reports-and-analytics)
+>> /Border [ 0 0 0 ] /Rect [ 98 414 185.25 426 ] /Subtype /Link /Type /Annot
+>>
+endobj
+58 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/discounts)
+>> /Border [ 0 0 0 ] /Rect [ 98 378 204.7 390 ] /Subtype /Link /Type /Annot
+>>
+endobj
+59 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/customers)
+>> /Border [ 0 0 0 ] /Rect [ 98 342 203.59 354 ] /Subtype /Link /Type /Annot
+>>
+endobj
+60 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/online-store)
+>> /Border [ 0 0 0 ] /Rect [ 98 306.75 198.04 318.75 ] /Subtype /Link /Type /Annot
+>>
+endobj
+61 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/domains)
+>> /Border [ 0 0 0 ] /Rect [ 98 270.75 137.45 282.75 ] /Subtype /Link /Type /Annot
+>>
+endobj
+62 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/sell-in-person)
+>> /Border [ 0 0 0 ] /Rect [ 98 234.75 185.26 246.75 ] /Subtype /Link /Type /Annot
+>>
+endobj
+63 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/your-account/troubleshooting)
+>> /Border [ 0 0 0 ] /Rect [ 98 103.15 208.61 115.15 ] /Subtype /Link /Type /Annot
+>>
+endobj
+64 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/your-account/common-issues)
+>> /Border [ 0 0 0 ] /Rect [ 98 67.15 170.24 79.15 ] /Subtype /Link /Type /Annot
+>>
+endobj
+65 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/payments/troubleshooting)
+>> /Border [ 0 0 0 ] /Rect [ 98 31.15 211.94 43.15 ] /Subtype /Link /Type /Annot
+>>
+endobj
+66 0 obj
+<<
+/Annots [ 49 0 R 50 0 R 51 0 R 52 0 R 53 0 R 54 0 R 55 0 R 56 0 R 57 0 R 58 0 R 
+  59 0 R 60 0 R 61 0 R 62 0 R 63 0 R 64 0 R 65 0 R ] /Contents 109 0 R /MediaBox [ 0 0 612 792 ] /Parent 104 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 
+  /Trans <<
+
+>> /Type /Page
+>>
+endobj
+67 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/shipping/troubleshooting)
+>> /Border [ 0 0 0 ] /Rect [ 98 684.75 211.39 696.75 ] /Subtype /Link /Type /Annot
+>>
+endobj
+68 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/online-store/themes/troubleshooting)
+>> /Border [ 0 0 0 ] /Rect [ 98 648.75 203.6 660.75 ] /Subtype /Link /Type /Annot
+>>
+endobj
+69 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/checkout-settings/troubleshooting)
+>> /Border [ 0 0 0 ] /Rect [ 98 612.75 214.72 624.75 ] /Subtype /Link /Type /Annot
+>>
+endobj
+70 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/your-account)
+>> /Border [ 0 0 0 ] /Rect [ 98 481.15 195.27 493.15 ] /Subtype /Link /Type /Annot
+>>
+endobj
+71 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/your-account/staff)
+>> /Border [ 0 0 0 ] /Rect [ 98 444.4 185.25 456.4 ] /Subtype /Link /Type /Annot
+>>
+endobj
+72 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/your-account/billing)
+>> /Border [ 0 0 0 ] /Rect [ 98 408.4 173.58 420.4 ] /Subtype /Link /Type /Annot
+>>
+endobj
+73 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/shopify-admin)
+>> /Border [ 0 0 0 ] /Rect [ 98 373.15 160.81 385.15 ] /Subtype /Link /Type /Annot
+>>
+endobj
+74 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/notifications)
+>> /Border [ 0 0 0 ] /Rect [ 98 337.15 152.46 349.15 ] /Subtype /Link /Type /Annot
+>>
+endobj
+75 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/metafields)
+>> /Border [ 0 0 0 ] /Rect [ 98 301.15 143.57 313.15 ] /Subtype /Link /Type /Annot
+>>
+endobj
+76 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/files)
+>> /Border [ 0 0 0 ] /Rect [ 98 264.4 158.57 276.4 ] /Subtype /Link /Type /Annot
+>>
+endobj
+77 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/online-store)
+>> /Border [ 0 0 0 ] /Rect [ 98 133.55 153.58 145.55 ] /Subtype /Link /Type /Annot
+>>
+endobj
+78 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/sell-in-person)
+>> /Border [ 0 0 0 ] /Rect [ 98 97.55 208.04 109.55 ] /Subtype /Link /Type /Annot
+>>
+endobj
+79 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/buy-button)
+>> /Border [ 0 0 0 ] /Rect [ 98 61.55 207.51 73.55 ] /Subtype /Link /Type /Annot
+>>
+endobj
+80 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/sales-channels/facebook-instagram)
+>> /Border [ 0 0 0 ] /Rect [ 98 24.8 198.6 36.8 ] /Subtype /Link /Type /Annot
+>>
+endobj
+81 0 obj
+<<
+/Annots [ 67 0 R 68 0 R 69 0 R 70 0 R 71 0 R 72 0 R 73 0 R 74 0 R 75 0 R 76 0 R 
+  77 0 R 78 0 R 79 0 R 80 0 R ] /Contents 110 0 R /MediaBox [ 0 0 612 792 ] /Parent 104 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 
+  /Trans <<
+
+>> /Type /Page
+>>
+endobj
+82 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/sales-channels/tiktok)
+>> /Border [ 0 0 0 ] /Rect [ 98 684.75 128 696.75 ] /Subtype /Link /Type /Annot
+>>
+endobj
+83 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/sales-channels/google-youtube)
+>> /Border [ 0 0 0 ] /Rect [ 98 648 183.05 660 ] /Subtype /Link /Type /Annot
+>>
+endobj
+84 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/sales-channels/amazon)
+>> /Border [ 0 0 0 ] /Rect [ 98 612.75 134.68 624.75 ] /Subtype /Link /Type /Annot
+>>
+endobj
+85 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/sales-channels/pinterest)
+>> /Border [ 0 0 0 ] /Rect [ 98 576.75 137.46 588.75 ] /Subtype /Link /Type /Annot
+>>
+endobj
+86 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/shopify-plus)
+>> /Border [ 0 0 0 ] /Rect [ 98 445.15 198.03 457.15 ] /Subtype /Link /Type /Annot
+>>
+endobj
+87 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/organization-settings)
+>> /Border [ 0 0 0 ] /Rect [ 98 409.15 185.81 421.15 ] /Subtype /Link /Type /Annot
+>>
+endobj
+88 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/shopify-plus/launchpad)
+>> /Border [ 0 0 0 ] /Rect [ 98 373.15 147.48 385.15 ] /Subtype /Link /Type /Annot
+>>
+endobj
+89 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/shopify-flow)
+>> /Border [ 0 0 0 ] /Rect [ 98 337.15 179.13 349.15 ] /Subtype /Link /Type /Annot
+>>
+endobj
+90 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/shopify-plus/transporter)
+>> /Border [ 0 0 0 ] /Rect [ 98 301.15 149.68 313.15 ] /Subtype /Link /Type /Annot
+>>
+endobj
+91 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/checkout-settings/script-editor)
+>> /Border [ 0 0 0 ] /Rect [ 98 265.15 128.56 277.15 ] /Subtype /Link /Type /Annot
+>>
+endobj
+92 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://www.shopify.com/partners)
+>> /Border [ 0 0 0 ] /Rect [ 98 133.55 171.91 145.55 ] /Subtype /Link /Type /Annot
+>>
+endobj
+93 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://www.shopify.com/partners/academy)
+>> /Border [ 0 0 0 ] /Rect [ 98 97.55 175.25 109.55 ] /Subtype /Link /Type /Annot
+>>
+endobj
+94 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://help.shopify.com/en/manual/partners)
+>> /Border [ 0 0 0 ] /Rect [ 98 61.55 186.92 73.55 ] /Subtype /Link /Type /Annot
+>>
+endobj
+95 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://shopify.dev/docs/apps/distribution/app-store)
+>> /Border [ 0 0 0 ] /Rect [ 98 25.55 174.15 37.55 ] /Subtype /Link /Type /Annot
+>>
+endobj
+96 0 obj
+<<
+/Annots [ 82 0 R 83 0 R 84 0 R 85 0 R 86 0 R 87 0 R 88 0 R 89 0 R 90 0 R 91 0 R 
+  92 0 R 93 0 R 94 0 R 95 0 R ] /Contents 111 0 R /MediaBox [ 0 0 612 792 ] /Parent 104 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 
+  /Trans <<
+
+>> /Type /Page
+>>
+endobj
+97 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://shopify.dev/docs/themes/distribution)
+>> /Border [ 0 0 0 ] /Rect [ 98 684.75 155.8 696.75 ] /Subtype /Link /Type /Annot
+>>
+endobj
+98 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://shopify.dev/docs/api/versioning)
+>> /Border [ 0 0 0 ] /Rect [ 98 648.75 164.14 660.75 ] /Subtype /Link /Type /Annot
+>>
+endobj
+99 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://shopify.dev/docs/api/usage/rate-limits)
+>> /Border [ 0 0 0 ] /Rect [ 98 612.75 148.01 624.75 ] /Subtype /Link /Type /Annot
+>>
+endobj
+100 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://shopify.dev/docs/apps/auth/oauth)
+>> /Border [ 0 0 0 ] /Rect [ 98 576.75 161.37 588.75 ] /Subtype /Link /Type /Annot
+>>
+endobj
+101 0 obj
+<<
+/Annots [ 97 0 R 98 0 R 99 0 R 100 0 R ] /Contents 112 0 R /MediaBox [ 0 0 612 792 ] /Parent 104 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 
+  /Trans <<
+
+>> /Type /Page
+>>
+endobj
+102 0 obj
+<<
+/PageMode /UseNone /Pages 104 0 R /Type /Catalog
+>>
+endobj
+103 0 obj
+<<
+/Author (\(anonymous\)) /CreationDate (D:20260614021008+08'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20260614021008+08'00') /Producer (ReportLab PDF Library - www.reportlab.com) 
+  /Subject (\(unspecified\)) /Title (\(anonymous\)) /Trapped /False
+>>
+endobj
+104 0 obj
+<<
+/Count 8 /Kids [ 5 0 R 18 0 R 33 0 R 48 0 R 66 0 R 81 0 R 96 0 R 101 0 R ] /Type /Pages
+>>
+endobj
+105 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 410
+>>
+stream
+Gat%]bu2D4'SZ:0MR,]@@ZuQG\3j,**#>2qJPlOPdg#Y)%WCfQJIVr<S7FBlEg-*cF#dJD]NrtpG`M=h`k_i<-+IIunH?&#ZZGoH1'ljN4r$/cbM>H4S)'XQkf`!!/<GuE^dQQIUKBPK3q!4KUlge.J<5bZ&<58V@o;15EP+R*F)AC4\];(K)kCGKdlLEQPuQK"GDJ26n'OA76):h;0(/^s9=VI@]SKP*OmBtu>GE[%M9`jidY1:D>O8W%"[7\$',m2io/ebW_JZ<Tm(dm;a"mR^>Rj(ID^6q!h,DmaO(M_/31-@>\nrs%'>:Zn<KU6qnV$Wt=%)gKIYE8\\k+&5VafXQo2:P\o+#d^U,03N0eehgM53u#[S8T*,\a:$;U:?>\$";jY$gTgkJ&.tquG%-SIG~>endstream
+endobj
+106 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 925
+>>
+stream
+Gaua>b>R(K'Sc@-MR.&k1U4'?0Bis[!t..'+A4W0;%f/HE[83FIJV*0!X(869ctHhS641/s8S,?,7-YD0@\e+%,c49rX]+I0V/??*ej,1Hlr*K4gaJl-P-_2gY'#\,YB7#K,9:9#6>?6Jk-;bf!BqS@r*)9ZZ.^mW/7"n;3-eD(OT)q):&anE-q50M>[)B(redKr2!H-ZIbsoN*".9g<ZW1%Y1oi"9si"DPT`oA5$!2Q0c2G+u^F!KU]M'`3fBB@3X/UZ[XbUA.C_e]$c=G:,?><-+0;1m5/M2QbBipQ,clgCn?8l-<Fe;P&_^%mdu&">0@9U1l)^Ur-kJ;f,72PM9h/1oN0qB>B*HJ::sQ;'+iO(5_$#NA..nc]G)$^>uG)DI4V;BF$FI<3,M(*?GpJ3bK=(W$AMHDR2\-phA81XMnaC^6\>',4^H-s1HqQ%9DJ#GYVE#!*<t^Mg'dDiQA\YYLs;GC.?0Pcjj]:X>DJ?p3^pO-.>ibdIG[AO4W'bq2/.$TBO]FbGH0Of`L!F'Ll2V-^?606:V*^Y)Pih,>l:jDGEjcEKh.aM'&qk%\KFc5i>lOI3R>7A2=)S_AXT#K%o.BgY@To/N;8_i<M-\5r$bi2IGr";pnqT+&G`C@)km:aIFn>]_T)ba'E66]'ZD$dE?$$Y?`uS715GBpbTg0=q]t">9Ek`3/lnQ)R5*EPq4#Upf!HAV+9t9*[$J:Z;6jD3)meG7P8?ZCX(J4ee4E<.XZLP;4>"?qX`VL^[r;Mo.i?B^8;2E,9:ki9s0gcinsNc_=?a!&'e<3G*`"UdV1OZ,FO'0L\k?4A@ugr=BdH5TZm@LOnQ';5/[M0/o/&DW1C0#Dq6[NOTAZ0-;WVaN.d%EUY(]&eWha^-hTO@>2)iNU6LChnDSK$-(JCgCOY9W:]t_G)UZh~>endstream
+endobj
+107 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 820
+>>
+stream
+GauI69lHLd&;KZQ'm$D'8m0eXq<BPKd]/H@:/'1o=k5j]QPXHgrUjI3G$Nd-gf9<;N.k^&H"Ydg"bS6_gjQLKi)9Wq(CZZrYQ.?/KjY5u_.5RBgG<+G>a*6mjg"f@LaVc!h>bCrH#_\r0tT-8%<=6<krN?.0IsJo]tB-Y-NkOFfT1(M/&(&k5!H8HloQ&EpEphmT@!`/+CW\T<W1<!2Ob/UPHmds08Pn(OmtETN2joqE]B)6c@ChcL2m<90%MK3apce3^=&k^;GpVoL<_m#Gh%Jn)2IZ<^SJ!!>[M<WW`0D8:N`JY^;9iVeTRJqPZI&9?u'W6doi]EBF6A"-H]GD3S_T*o:-VV1)2Z:=LC;[=u5kL=9#&UeAGtO(X)=gi^u%3ricA7C15:K6JRo_!-UCkY=#+aX\?*2%G[:deJ9KJd]u\8;;9nSVpKog$=`B0iZAlqT!*E?<jE`S&OF<;;PYkf+M'NiD<L\^H4U>GXG2#X'mKnG<D[jlRN?e(OhSF^,/,t0J`N,8C<:9.r=`OW_$fpN[p3rZFmW(.!n^IJ@?dYn8=do]Q?.Is7bFF`0sIR"ZSnZ<$W.\aTMX)W6"msp;6^[nBW:q[_CBi$%S7rV*NQ*IEJq3JPW2W\&3W2#K0cKtb+n,bWo1:rX&s9QrSZ!n=oM;o3UDe\KT+/%,d,u\R\n8.)I57AYs$*'auU^mLNUmUpfl'eC*e0.nS0KOm6fgO7M$inFk,sk5-O&&aOB%!c[(pmH&O?f7/[5$2&2\6@#%l.QF5Z9pBVFXB71!40qhhA(HX07d@7jDS_OiP#BYV!P<WFWUqm~>endstream
+endobj
+108 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 867
+>>
+stream
+GauI6gMWc?&;KZF'Q^\IXqZMJ_dW"[g8`k5C_^9,K9LNrY_u5OmaJ@jcu%7Q7&WOBO;OA\rY^(&_;LaaGNZ%1\;J,uJH6F?2h3?O&3msI]QdW<_im@lJP45)Aum)R[gVf]E1aXJ?7pR\DJ+^27P<[@.iJ9GqCBM!+o^&]I5Jt`dsai7dqIk&aN&7IIHQR_c9)A>q:]O7eT]&24!FF^)<G]'j<@N_DB[4mLuRo6q.GB%pEtc&pQ"5/i>snOL/,CeqOukqb-Q\(=Zgn[jp1n8n/Pn<as,6Gg0.cinu6XCado..Z;I\I3dE&Zf%H(!QKb8Y<ZclW7q.['EE;%/a_Rd.]NXLgMRmlM<Tg%5#^*C:)Q+`J6V]a.oLWHK<p#;FLenV/_%Ga$<!ZmHK+'h4+2Oe<E5VCN&@,i3[?Am:nD]a#s*5ChD[8i).Mt)gCKg%9<Jd`V-Y^JVgusNecm2Lm@mOg5bYQ0/ph7eg0Y/"3iNdcR6hIpCI8%Bl\PmXf>sHqKXclpECI.Il14rD9gCl0h)+5u9=nlQ<<a2DG2O\%"oB4Jk(a(=5%O[1Ji^GTMZols26Y/;R6:*G1kRCV)k%QW;;rZ7deE5rRctSb[W/t;FCS#IHm?*Jj.TLh!VW0@T>1'o5;jQStD`(b",*$7a=7!_471%%lp4PU*&WJh:Y\p6N[>$cL-"IA2B8@"3AjsT)Uiq/<8m*rK3>LF-f_,eD]hL!Uf-J>F:)h/&VA*j8.N=lPOcR?mTa=%BALD]ObeSf,9%Uqk=*N&Ir\rN86D@ncA>40Jjci?e,_a-?QDGA?_en_:Jdba/FS@EfWukdR(Va^I2jm_9`@0W5p*OOT)a\190+V_d33`/_*jX#I~>endstream
+endobj
+109 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 897
+>>
+stream
+Gaua>a_oie&;KY&ME(i8!A,S)\[OD0J-%=^7KRnX7?M;R%4/"u<RbqoC3,jJ[*+(/GloA;s35N\P="3n"8/9T$1K)?mhPr@ODP"%D?/@&pm<X^/C8WQS3ZFNIBah47[i."h_q%G53SKZ+cP<6_-N/a[G[PjMMXr36M;G*G?s.1qKNc<8qJ4r)u=4_+aEh]8hLtA#UFo!m?O^5HdCGF?Ft52C:6:8Kd])fH"C<i3VVf.Ct_3IY;h^sM?^@FZ5lpEj?-EHQ?UT.2A.Y#[cL`5GtBMt<!e_UneXHWObNQG'>;[%?'5guWnQ/D+5scmH=SeYKWDm4gN:epof3A!1ipCfGhP0Y!+B?ai9?i`261o3`G[/;5A>0mM?NoP239&MOTsQBfeMUc>gYA(4S7h-Zslgh-daD6;Pc4D4BB:43`Zo*O@0klaRW]L"P9C%Z<aLg[#5hkU:KVbF^R\'d)OnUjNSA*8dh$ugak_QZF=k+1?+tBipV:qjntcRd4Jf$ZkeYS6ca!pMe`M6-a,H)4[L(7@N0[+@BpG]\"$a>\e1bu\PF?q>Rn62fShcj[Rg;,PtI:Yc6]=!PA:E>ZWZ'OB#O4V]^2f\XJ1e+d89>j)h!rE;3MJbB%sH\Cl[l7N'sq1X5/ReBBHYBiEU9/3<P#gm+'[=<=6Y[d[X6\=K_,@LJ+BNR`ir$jkO:0;sVF]YFoPD\inTenM#,6=qW+nN\tCHIh6R=5S/cZclT6@6)WD`-9Z5*6IptdO].5h:9?"%OJ?Ul_s:<&aAeGTZNn@Q'GW;N>J5[92@^1]K"%;e_QIGhoC@mFmfm^\_8i]QF'KHnQi9YG8`7nUH3_hU:-KeHl?pMuZ7<jR2kTrW0lJ!1:C2n"cs\:&M/QCEnT!tb2o+E3M4R=B~>endstream
+endobj
+110 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 906
+>>
+stream
+Gaua>?Z2Df'ZJu$.IL-b:;UE!&8,oU[8*!U[8V>:MaO#m'l4)O;SN)<KW[rmX$IC6;>s\Uq`?1f>_=3(#B&F_*+0A2Iu==@Lpqm`U(H5"[s7IjJe)M>(sE%j:UXbH)W5moiV9b7:$b:H'dNc@9l;<gJ[P*4B%G/TR%jHBql.XD<2I0fgHA/NmL/.>>h(t.$bjr@16lcM?*?%mcdG:_h%dlC+TBfNrNsU0F:k8g>rV>7KlekHAFKe8Q-,i*1IHOZV'm8(L[%-KQ4K2hn0(Oq0$Z3q$q<!<X%Y#%<CW=l2\"qqlN37NIb^_CH.KA`a-,\WNat_%T^sXA)QL+PREe.K0&Yd[E/OLG*C_S(1CHCS?U@#2L,b\D$$c-'!014`X;*EZYS:Z3Eb40TP=l):CUk%B'+3dOiY8uU41iAdY5'$K(-Hm9oQD_u!F0Jl2\fn88oE^JJ;m=h-;3\YX]u!Nc4E-I$Y9>WOt>3VU20)1Ot46[%>(p47*o&:B<UXLiuO_TM:/![K]'#i?eN+Q2H((BDW(X<7@D?!ZG&F#H:jo-OmZ9[VirZ>K+(l'/8KRS"l-'nD&9'JIlIs&8,p0<FL'04TZ+Z\_AZI1FE1ELda?Pd7_L](S5<WN8G3Q5^,Cf$XDt;\Cc']-_be1RUg"1Q,>"#7S?ike?GbeG,Dq6;gT@iBf&#1TZ'!gEJ<#t4gBPe,6V]Lebh2r/q)CXDif,NK[d>T-3Dj``#IXD>SJgZ<>m7/pQa._$n9>ioG05H!THS[ELN[/7D:U`5g'9,$$(GKBdl\NoH.<X`a+kBl?/@$Vp@q7\V^kiN)&l;!ZR.f6]V<Ac4r+9R$s;#+=Ob?("[;Qrge6ZaS!)/-=P%n<h=A+/W<YI;pin"6>!KJ8)nUINPrq8\"-YspJ.YZ~>endstream
+endobj
+111 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 924
+>>
+stream
+Gaua>?#Q2d'Sc)J/'c\p:?'12!OB=RCU]3o9il3Zou8:Q?icbM-;j[+k<MVn1ijjE,pFPSK&c$BNR'U-nBHNQF'8Wm9u+A/J1r6)5f=t1>eriapcC`:G=F;T4uP?h0mDiV;2AWW?d8m';"k+d_1X73huMa`/m_%2bI"G%(XL9,;7S.i<BbbK;c.k"HR7c2/NcH0VOTK<S?kP-1RbUr+VmhuQ)8UobB$5R5k92[G[lb8QsiZlb]`%V'Q0V'>5nb+OtRHQYf7-ie&^/:6LR2bEJq7mBfk^ghTciqq]Wnj@.4JOM`Rj+R<=8"5E5G`"6hq(>44gH\Au1A9DU'H/adRG:*Z=t7uP5*Os`9A9JWHHTni/P<*'=P"d.P1h\ml;Ok]9O+H/Z-);_'t#f+D)5XDcr^$u@1$6/ECiC:nBgD1SP7BPM9lse4>a]u*_EuQ'TL)U<umI-$;6"ed4Kiu_X3!ENl!i@0D9?&j>\_o.T'!cnV3D35:@47OK];CjY-H%OijV/kUT02qlPj9WZbFG]9!'#(][Xm.0V_W3l-9poEr`[SrcQCp'(f/?1\iYP,Il-9H"du-QeiB@,/I3QUbCV6Jo/*N3e/E^*:9s"gE=cCep6'l-Lm?'aj'%AH1"r3(!Yca4KUG-51AQAPl%u3@<C3/PA.+H.I%#30#P*R3P?oa1b+<6#3F8.I1R9Xe6aYP1Sn\6G2U/Y64+MO?9bbA0+1q5$DVN4755r<uR\GXEQr'bBPGYDY^+Nig1=s:.'"(E$eNah3?:AoK]W$rtH)b$V"dDekg6("gL;"Vq1+0kTgo&DCEag63^/#MT5.Nkah--p]YMPhq%NE>7I$`&s8uJb<Yg!`ua&2*Kr@FZB0"!pgmY#M;mn#JAJ#m*P;E/3D1$L!1>ZG`Y&ds>m>ce[bef6C=#:kN>Er~>endstream
+endobj
+112 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 589
+>>
+stream
+Gau1+:N+u1(rl%?'^mcG'FabdDk5HRPB,;RDl6kp`X\JT>_=!ggCNYHXh-!\,"5U9H45ja%kg0JgIB2S2ZTI*n@fGV'XA?BJ-*gCE0i-t(1]Wb:*@R+%^m8_0hESkDr5uNYXXBc'SEf-XK`;XkY%K4Ebe@HD`gg6<@>s;</=&J:gA@Kla0_aD0hT\7]P#g.rA6=5!\fHZB#L[LM\iK-j_6%8bimK:(T<(IRTB973gaiXEbLc27%9>o@,.-K&hNb\)4s:0@=QN0&,Ze^Q5R'@d-%iO+bjfP&?X!Ya18*qNQ8m#$6jGBN>GC[m7"j4A[#';V/a&T@QQYcL%)T9WikeRDn]\lVF8M0cIsDeM0(a#DnKOB/"l#RF>X7&$Y:+/4g,)IJ5TL@/6;?)"-)Z<!f03*u_b/i5>`_C,Z&.GS$^-*Wu'/qSO;1KT:rJ!)X_2[M.=Mkc6hSQurj&2erlrI)o3C!gn^[aD8o`-X`GPX^tfHfL`DLK)mm24rT'48Rd?E\GtU[IZT;pBr1*'-Z[SH\(e6kJD&K*gjXslXkM="W!)0T$fJ%mGL=359V#f7,Eek]Cis.U%tbj\o`~>endstream
+endobj
+xref
+0 113
+0000000000 65535 f 
+0000000073 00000 n 
+0000000124 00000 n 
+0000000231 00000 n 
+0000000343 00000 n 
+0000000458 00000 n 
+0000000655 00000 n 
+0000000819 00000 n 
+0000000993 00000 n 
+0000001162 00000 n 
+0000001330 00000 n 
+0000001497 00000 n 
+0000001689 00000 n 
+0000001889 00000 n 
+0000002077 00000 n 
+0000002264 00000 n 
+0000002451 00000 n 
+0000002636 00000 n 
+0000002844 00000 n 
+0000003137 00000 n 
+0000003315 00000 n 
+0000003491 00000 n 
+0000003665 00000 n 
+0000003845 00000 n 
+0000004023 00000 n 
+0000004188 00000 n 
+0000004357 00000 n 
+0000004532 00000 n 
+0000004712 00000 n 
+0000004895 00000 n 
+0000005075 00000 n 
+0000005253 00000 n 
+0000005429 00000 n 
+0000005599 00000 n 
+0000005910 00000 n 
+0000006098 00000 n 
+0000006280 00000 n 
+0000006456 00000 n 
+0000006641 00000 n 
+0000006822 00000 n 
+0000006992 00000 n 
+0000007178 00000 n 
+0000007353 00000 n 
+0000007531 00000 n 
+0000007714 00000 n 
+0000007894 00000 n 
+0000008073 00000 n 
+0000008263 00000 n 
+0000008443 00000 n 
+0000008754 00000 n 
+0000008949 00000 n 
+0000009125 00000 n 
+0000009309 00000 n 
+0000009510 00000 n 
+0000009688 00000 n 
+0000009896 00000 n 
+0000010077 00000 n 
+0000010262 00000 n 
+0000010453 00000 n 
+0000010631 00000 n 
+0000010810 00000 n 
+0000010998 00000 n 
+0000011181 00000 n 
+0000011371 00000 n 
+0000011575 00000 n 
+0000011775 00000 n 
+0000011973 00000 n 
+0000012305 00000 n 
+0000012505 00000 n 
+0000012715 00000 n 
+0000012924 00000 n 
+0000013112 00000 n 
+0000013304 00000 n 
+0000013498 00000 n 
+0000013687 00000 n 
+0000013876 00000 n 
+0000014062 00000 n 
+0000014241 00000 n 
+0000014429 00000 n 
+0000014618 00000 n 
+0000014802 00000 n 
+0000015006 00000 n 
+0000015317 00000 n 
+0000015511 00000 n 
+0000015710 00000 n 
+0000015907 00000 n 
+0000016107 00000 n 
+0000016295 00000 n 
+0000016492 00000 n 
+0000016690 00000 n 
+0000016878 00000 n 
+0000017078 00000 n 
+0000017285 00000 n 
+0000017458 00000 n 
+0000017638 00000 n 
+0000017820 00000 n 
+0000018011 00000 n 
+0000018322 00000 n 
+0000018506 00000 n 
+0000018686 00000 n 
+0000018873 00000 n 
+0000019055 00000 n 
+0000019295 00000 n 
+0000019367 00000 n 
+0000019652 00000 n 
+0000019763 00000 n 
+0000020265 00000 n 
+0000021282 00000 n 
+0000022194 00000 n 
+0000023153 00000 n 
+0000024142 00000 n 
+0000025140 00000 n 
+0000026156 00000 n 
+trailer
+<<
+/ID 
+[<02998aa162bbe277f27f6fc9e27a00d2><02998aa162bbe277f27f6fc9e27a00d2>]
+% ReportLab generated PDF document -- digest (http://www.reportlab.com)
+
+/Info 103 0 R
+/Root 102 0 R
+/Size 113
+>>
+startxref
+26837
+%%EOF
