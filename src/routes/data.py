@@ -86,13 +86,11 @@ async def process_file_endpoint(request:Request,project_id: str, process_request
         doc, process_request.chunk_size, process_request.chunk_overlap
     )
 
-    if chunks:
-        return {"status": ResponseSignal.FILE_PROCESSED_SUCCESS.value,
-                "data": chunks}
-    else:
-        return {"status": ResponseSignal.FILE_PROCESSING_FAILED.value,
-                "data": []}
-
+    if not chunks:
+        return JSONResponse(
+            status_code=400,
+            content={"status": ResponseSignal.FILE_PROCESSING_FAILED.value, "data": []}
+        )
 
         file_chunks_records=[
         DataChunk(
