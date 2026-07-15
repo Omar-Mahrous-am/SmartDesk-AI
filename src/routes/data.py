@@ -54,7 +54,7 @@ async def upload_file(request:Request,  project_id: str, file: UploadFile = File
         content={
             "signal": ResponseSignal.FILE_UPLOAD_SUCCESS.value,
             "file_id": file_id,
-            "project_id": str(project._id)
+            "project_id": str(project.id)
         }
     )
 
@@ -92,13 +92,12 @@ async def process_file_endpoint(request:Request,project_id: str, process_request
             content={"status": ResponseSignal.FILE_PROCESSING_FAILED.value, "data": []}
         )
 
-        file_chunks_records=[
+    file_chunks_records=[
         DataChunk(
          chunk_content=chunck.page_content,
          chunk_order=i+1,
          chunk_metadata=chunck.metadata,
          chunk_project_id=project.id
-
         )
         for i,chunck in enumerate(chunks)
     ]
@@ -106,7 +105,7 @@ async def process_file_endpoint(request:Request,project_id: str, process_request
     chunk_model=await ChunkModel.create_instance(db_client=request.app.mongodb)
 
     if do_reset==1:
-        await chunk_model.delete_chunks_by_project_id(project._id) 
+        await chunk_model.delete_chunks_by_project_id(project.id) 
 
     
 

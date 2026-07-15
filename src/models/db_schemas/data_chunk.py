@@ -23,7 +23,7 @@ class DataChunk(BaseModel):
 
     @classmethod
     def get_indexes(cls):
-        return [{"key":[("chunk_project_id",1),("chunk_order",1)],"name ":"chunk_project_id_chunk_order_index_1","unique":True}]      
+        return [{"key":[("chunk_project_id",1),("chunk_order",1)],"name":"chunk_project_id_chunk_order_index_1","unique":True}]      
 
 
 
