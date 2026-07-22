@@ -104,8 +104,9 @@ async def process_file_endpoint(request:Request,project_id: str, process_request
 
     chunk_model=await ChunkModel.create_instance(db_client=request.app.mongodb)
 
-    if do_reset==1:
-        await chunk_model.delete_chunks_by_project_id(project.id) 
+    # Always delete existing chunks for this project to avoid duplicate key errors
+    # on the (chunk_project_id, chunk_order) unique index when re-processing
+    await chunk_model.delete_chunks_by_project_id(project.id)
 
     
 
