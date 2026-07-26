@@ -1,15 +1,46 @@
+"""
+Document processing controller for the SmartDesk AI application.
+
+This module provides the `ProcessController` class, which handles the extraction
+and chunking of text from uploaded documents (like PDFs) to prepare them for
+vector embedding and retrieval-augmented generation (RAG).
+"""
 from .BaseController import BaseController
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 import os
 
 class ProcessController(BaseController):
+    """
+    Controller responsible for processing and chunking document content.
+
+    This class provides methods to load documents from the filesystem and split
+    their content into smaller, overlapping chunks suitable for semantic search
+    and vector database ingestion.
+    """
 
     def __init__(self, project_id: str = None):
+        """
+        Initializes the ProcessController.
+
+        Args:
+            project_id (str, optional): The ID of the project whose files
+                will be processed. Defaults to None.
+        """
         super().__init__()
         self.project_id = project_id
 
     def get_file_content(self, file_id: str):
+        """
+        Retrieves and loads the content of a specific file within the project.
+
+        Args:
+            file_id (str): The unique identifier (filename) of the file to load.
+
+        Returns:
+            list[Document] | None: A list of LangChain Document objects if the file
+                exists and is successfully loaded; otherwise, None.
+        """
         file_path = os.path.join(
             self.files_dir,
             self.project_id,
@@ -21,13 +52,40 @@ class ProcessController(BaseController):
 
         return self.load_pdf(file_path)
 
-    def load_pdf(self, path):
+    def load_pdf(self, path: str):
+        """
+        Loads a PDF file from the filesystem.
+
+        Uses LangChain's PyPDFLoader to parse the PDF and extract its text
+        along with page-level metadata.
+
+        Args:
+            path (str): The absolute or relative path to the PDF file.
+
+        Returns:
+            list[Document]: A list of LangChain Document objects representing the PDF pages.
+        """
         pdf_loader = PyPDFLoader(path)
 
         return pdf_loader.load() 
 
     def process_file_content(self, file_content: list, file_id: str,
                               chunk_size: int, overlap_size: int):
+        """
+        Processes loaded document content by splitting it into smaller chunks.
+
+        This is a wrapper around `split_text_into_chunks` that provides a standardized
+        interface for the data pipeline.
+
+        Args:
+            file_content (list): The raw document content (list of LangChain Documents).
+            file_id (str): The identifier of the file being processed.
+            chunk_size (int): The maximum character length of each generated chunk.
+            overlap_size (int): The number of characters to overlap between adjacent chunks.
+
+        Returns:
+            list[Document]: The resulting chunked documents.
+        """
         return self.split_text_into_chunks(
             document=file_content,
             chunk_size=chunk_size,
@@ -35,12 +93,29 @@ class ProcessController(BaseController):
         )
 
     def split_text_into_chunks(self, document: list, chunk_size: int, chunk_overlap: int):
+        """
+        Splits a large document into smaller, overlapping chunks.
+
+        This function divides the input document into segments to ensure that
+        context is preserved across chunk boundaries (via overlap) while keeping
+        the chunks small enough for the embedding model's context window.
+
+        Args:
+            document (list): List of LangChain Document objects to split.
+            chunk_size (int): Maximum number of characters per chunk.
+            chunk_overlap (int): Number of overlapping characters between chunks.
+
+        Returns:
+            list[Document]: A list containing the newly generated document chunks.
+        """
+        # Configure the text splitter to prioritize natural breaks (paragraphs, lines, words)
         text_splitter = RecursiveCharacterTextSplitter(
             chunk_size=chunk_size,
             chunk_overlap=chunk_overlap,
             separators=["\n\n", "\n", " ", ""]
         )
         
+        # Separate content and metadata to maintain metadata linkage after splitting
         doc_content_list = [doc.page_content for doc in document]
         doc_metadata_list = [doc.metadata for doc in document]
 
