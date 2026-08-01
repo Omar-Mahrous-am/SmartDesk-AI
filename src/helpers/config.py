@@ -24,18 +24,38 @@ class Settings(BaseSettings):
         MONGODB_URL (str): The connection string for the MongoDB database.
         MONGODB (str): The specific database name to use within MongoDB.
     """
-    class Config:
-        env_file=".env"
-
     APP_NAME:str
     VERSION:str
     OPEN_API_KEYS:str
-    
-    # 1 MB chunk size is used to process uploads in manageable pieces
-    FILE_DEFAULT_CHUNK_SIZE:int = 1024 * 1024
-    
     MONGODB_URL:str
     MONGODB:str
+
+
+# ==========LLM Config ================
+
+    GENERATION_BACKEND:str
+    EMBEDDING_BACKEND:str
+
+    # ========== OPENAI Config ============
+    OPEN_API_KEYS:str
+    OPEN_API_URL:str
+
+    # ========== COHERE Config ============
+    COHERE_API_KEY:str
+
+    GENERATION_MODEL_ID:str
+    EMBEDDING_MODEL_ID:str
+    EMBEDDING_MODEL_SIZE:str
+
+    INPUT_DEFAULT_MAX_CHARACTERS:int
+    GENERATION_DEFAULT_MAX_TOKENS:int
+    GENERATION_DEFAULT_TEMPERATURE:float
+ 
+
+
+    class Config:
+        env_file=".env"
+
 
 
 def get_settings():
@@ -48,4 +68,4 @@ def get_settings():
     Returns:
         Settings: The populated configuration object.
     """
-    return Settings()
+    return Settings()
