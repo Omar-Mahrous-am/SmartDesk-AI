@@ -10,15 +10,15 @@ class LLMInterface(ABC):
 
 
     @abstractmethod
-    def set_embeddings_model(self, model_id:str) -> None:
+    def set_embeddings_model(self, model_id:str,embedding_size:int) -> None:
         pass    
     
     @abstractmethod
-    def generate_text(self, prompt: str,max_output_tokens:int,temprature:float=0.5) -> str:
+    def generate_text(self, prompt: str,chat_history:list=[],max_output_tokens:int=None,temprature:float=None) -> str:
         pass
 
     @abstractmethod
-    def embed_text(self, text: str,document_type:str ) -> list[float]:
+    def embed_text(self, text:str,document_type:str=None) -> list[float]:
         pass
 
 
@@ -26,8 +26,8 @@ class LLMInterface(ABC):
     def construct_prompt(self,prompt:str,role:str) -> str:
         pass  
 
-    
-      
+
+
 
 
 
