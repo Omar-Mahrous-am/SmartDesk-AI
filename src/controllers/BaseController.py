@@ -31,4 +31,16 @@ class BaseController:
         self.OpenAI_API_KEY = os.getenv("OPENAI_API_KEY")
         
         # Centralized directory configuration for asset storage
-        self.files_dir = os.path.join("src", "assets")
+        self.files_dir = os.path.join("src", "assets/files")
+
+        self.database_dir=os.path.join("src", "assets/database")
+
+
+
+    def get_database_path(self,db_name):
+        database_path=os.path.join(self.database_dir,db_name)
+        if not os.path.exists(database_path):
+            os.makedirs(database_path)
+        return database_path
+
+
