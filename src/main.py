@@ -5,6 +5,7 @@ This module initializes the FastAPI application, loads environment variables,
 establishes the database connection to MongoDB, and registers the application routes.
 It serves as the central hub tying the project's infrastructure and routing together.
 """
+from src.routes import nlp_index_push
 import os
 from fastapi import FastAPI
 from dotenv import load_dotenv
@@ -16,11 +17,12 @@ from dotenv import load_dotenv
 # to ensure configurations like MongoDB URI are available.
 load_dotenv("src/.env")
 
-from src.routes import base, data
+from src.routes import base, data,nlp
 from motor.motor_asyncio import AsyncIOMotorClient
 from src.helpers import config
 from src.stores.llm import LLMProviderFactory
-    
+from src.stores.vectordb import VectorDBProviderFactory
+
 
 
 app = FastAPI()
@@ -30,7 +32,7 @@ app = FastAPI()
 # =====================================================
 
 
-async def start_up():
+async def start_up_span():
     """
     Handles application startup operations.
 
@@ -61,10 +63,24 @@ async def start_up():
     app.embedding_client.set_embeddings_model(settings.EMBEDDING_MODEL_ID,settings.EMBEDDING_MODEL_SIZE)
 
 
+    #vector_db_client
+
+    app.vectordb_client=VectorDBProviderFactory.create(provider=settings.VECTORDB_BACKEND)
+    app.vectordb_client.connect()
+
+
+
+
+
+    
+    
+
+
+
     print("Connected to MongoDB")
 
 
-async def shutdown():
+async def shutdown_span():
     """
     Handles application shutdown operations.
 
@@ -73,19 +89,25 @@ async def shutdown():
     """
     app.mongodb_client.close()
     print("Closed MongoDB connection")  
+    app.vectordb_client.disconnect()
+    print("Closed VectorDB connection")
+
 
 
 # =====================================================
 # Route Registration
 # =====================================================
-app.router.lifespan.on_startup.append(start_up)
-app.router.lifespan.on_shutdown.append(shutdown)
+app.router.lifespan.on_startup.append(start_up_span)
+app.router.lifespan.on_shutdown.append(shutdown_span)
 
 # Register the base routes (e.g., health checks or general endpoints)
 app.include_router(base.base_router)
 
 # Register data processing routes (e.g., upload, process, chunks)
 app.include_router(data.data_router)
+
+
+app.include_router(nlp.nlp_router)
 
 @app.get("/")
 def home():
