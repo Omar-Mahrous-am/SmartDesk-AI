@@ -19,6 +19,8 @@ load_dotenv("src/.env")
 from src.routes import base, data
 from motor.motor_asyncio import AsyncIOMotorClient
 from src.helpers import config
+from src.stores.llm import LLMProviderFactory
+    
 
 
 app = FastAPI()
@@ -27,7 +29,7 @@ app = FastAPI()
 # Application Lifespan Events
 # =====================================================
 
-@app.on_event("startup")
+
 async def start_up():
     """
     Handles application startup operations.
@@ -44,9 +46,24 @@ async def start_up():
     # Store the specific database instance for use in controllers/models
     app.mongodb = app.mongodb_client[settings.MONGODB]
     
+    llm_provider_factory = LLMProviderFactory(settings)
+
+    #generation_client
+    app.generation_client = llm_provider_factory.create(settings.GENERATION_BACKEND)  
+
+    #embedding_client
+    app.embedding_client = llm_provider_factory.create(settings.EMBEDDING_BACKEND)
+
+    #set generation model
+    app.generation_client.set_generation_model(settings.GENERATION_MODEL_ID)
+    
+    #set embedding model
+    app.embedding_client.set_embeddings_model(settings.EMBEDDING_MODEL_ID,settings.EMBEDDING_MODEL_SIZE)
+
+
     print("Connected to MongoDB")
 
-@app.on_event("shutdown")
+
 async def shutdown():
     """
     Handles application shutdown operations.
@@ -61,6 +78,8 @@ async def shutdown():
 # =====================================================
 # Route Registration
 # =====================================================
+app.router.lifespan.on_startup.append(start_up)
+app.router.lifespan.on_shutdown.append(shutdown)
 
 # Register the base routes (e.g., health checks or general endpoints)
 app.include_router(base.base_router)
