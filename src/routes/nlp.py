@@ -12,7 +12,7 @@ from src.models.ChunkModel import ChunkModel
 from src.models.AssetModel import AssetModel
 from src.models.db_schemas import DataChunk, Asset
 from src.models.enums.AssetTypeEnum import AssetTypeEnum
-from src.schemas.nlp import PushRequest     
+from src.schemas.nlp import PushRequest ,SearchRequest    
 logger = logging.getLogger('uvicorn.error')
 
 app_settings = Settings()
@@ -68,13 +68,56 @@ async def index_project(request: Request, project_id: str,push_request:PushReque
                                                                 "inserted_count":inserted_count})
 
 
+    
+
+    @nlp_router.get("/index/info/{project_id}")
+    async def get_project_index_info(request:Request,project_id:str):
+
+        project_model= await ProjectModel.create_instance(db_client=request.app.db_client)
+
+        project= await project_model.get_project_or_create_one(project_id=project_id)
+
+        if not project:
+            return JSONResponse(status_code=status.HTTP_404_NOT_FOUND, content={"signal": ResponseSignal.PROJEXT_NOT_FOUND_ERROR.value})
+
+        nlp_controller_instance=NLPController(vectordb_client=request.app.vectordb_client,generation_client=request.app.generation_client,embedding_client=request.app.embedding_client)
+
+
+        collection_info=nlp_controller_instance.get_vector_collection_info(project=project)
+        return JSONResponse(status_code=status.HTTP_200_OK, content={"signal": ResponseSignal.VECTORDB_COLLECTION_RETRIEVED.value,
+                                                                    "collection_info":collection_info})
+
+
+    @nlp_router.post("/index/search/{project_id}")
+    async def search_index(request:Request,project_id:str,search_request:SearchRequest):
+
+        project_model= await ProjectModel.create_instance(db_client=request.app.db_client)
+
+        project= await project_model.get_project_or_create_one(project_id=project_id)
+
+        if not project:
+            return JSONResponse(status_code=status.HTTP_404_NOT_FOUND, content={"signal": ResponseSignal.PROJEXT_NOT_FOUND_ERROR.value})
+
+        nlp_controller_instance=NLPController(vectordb_client=request.app.vectordb_client,generation_client=request.app.generation_client,embedding_client=request.app.embedding_client)
+
+
+        results=nlp_controller_instance.search_vector_db_collection(project=project,text=search_request.text,limit=search_request.limit)
+
+        if not results:
+            return JSONResponse(status_code=status.HTTP_404_NOT_FOUND, content={"signal": ResponseSignal.INSERT_INTO_VECTOR_DB_FAILED.value,"results":[]})
+
+
+        return JSONResponse(status_code=status.HTTP_200_OK, content={"signal": ResponseSignal.INSERT_INTO_VECTOR_DB_SUCCESS.value,
+                                                                    "search_results":results})
+        
 
 
 
+    
+    
 
 
-
-
+        
 
 
 
