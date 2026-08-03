@@ -31,7 +31,7 @@ async def index_project(request: Request, project_id: str,push_request:PushReque
 
     chunk_model= await ChunkModel.create_instance(db_client=request.app.db_client)
     
-    project= project_model.get_project_or_create_one(project_id=project_id)
+    project= await project_model.get_project_or_create_one(project_id=project_id)
 
     if not project:
         return JSONResponse(status_code=status.HTTP_404_NOT_FOUND, content={"signal": ResponseSignal.PROJEXT_NOT_FOUND_ERROR.value})
@@ -41,9 +41,10 @@ async def index_project(request: Request, project_id: str,push_request:PushReque
     inserted_count=0
     has_records=True
     page_number=1
+    idx=0
     
     while has_records:
-        page_chunks=chunk_model.get_project_chunks(project_id=project.project_id,page_number=page_number,page_size=push_request.page_size)
+        page_chunks=await chunk_model.get_project_chunks(project_id=project.project_id,page_number=page_number,page_size=push_request.page_size)
         
         if len(page_chunks):
             page_number+=1
@@ -52,8 +53,11 @@ async def index_project(request: Request, project_id: str,push_request:PushReque
             has_records=False
             break
 
+        chunks_ids=list(range(idx,idx+len(page_chunks)))
+        idx+=len(page_chunks)
 
-        is_inserted =nlp_controller_instance.index_into_vectordb(project=project,chunks=page_chunks,do_rest=push_request.do_rest) 
+
+        is_inserted =nlp_controller_instance.index_into_vectordb(project=project,chunks=page_chunks,do_rest=push_request.do_rest,chunks_ids=chunks_ids) 
         inserted_count+=len(page_chunks)
 
         if not is_inserted:

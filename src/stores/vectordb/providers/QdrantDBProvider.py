@@ -94,7 +94,8 @@ class QdrantDB(VectorDBInterface):
             metadata=[None] * len(vectors)
 
         if record_ids is None:
-            record_ids=[None] * len(vectors)
+            record_ids=list(range(0,len(texts)))
+        
 
         
 

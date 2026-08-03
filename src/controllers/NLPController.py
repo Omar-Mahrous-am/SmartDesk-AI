@@ -23,7 +23,7 @@ class NLPController(BaseController):
         collection_name=self.create_collection_name(project_id=project.project_id)
         return self.vectordb_client.get_collection_info(collection_name=collection_name)
 
-    def index_into_vectordb(self,project:project,chunks:List[DataChunk],do_rest=False):
+    def index_into_vectordb(self,project:project,chunks:List[DataChunk],chunks_ids:List[int],do_rest=False):
 
         #get_collection_name
         collection_name=self.create_collection_name(project_id=project.project_id)
@@ -44,7 +44,7 @@ class NLPController(BaseController):
         _=self.vectordb_client.create_collection(collection_name=collection_name,embedding_size=self.embedding_client.get_embedding_model_size(),do_reset=do_rest)
 
         #insert_into_vector_db
-        _=self.vectordb_client.insert_many_collections(collection_name=collection_name,texts=texts,vectors=vectors,metadata=metadata,batch_size=50)
+        _=self.vectordb_client.insert_many_collections(collection_name=collection_name,texts=texts,vectors=vectors,metadata=metadata,batch_size=50,chunks_ids=chunks_ids)
 
 
         return True

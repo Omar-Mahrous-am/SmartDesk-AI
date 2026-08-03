@@ -97,8 +97,12 @@ async def shutdown_span():
 # =====================================================
 # Route Registration
 # =====================================================
-app.router.lifespan.on_startup.append(start_up_span)
-app.router.lifespan.on_shutdown.append(shutdown_span)
+#app.router.lifespan.on_startup.append(start_up_span)
+#app.router.lifespan.on_shutdown.append(shutdown_span)
+
+app.on_event("startup")(start_up_span)
+app.on_event("shutdown")(shutdown_span)
+
 
 # Register the base routes (e.g., health checks or general endpoints)
 app.include_router(base.base_router)
