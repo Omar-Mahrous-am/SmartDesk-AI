@@ -127,4 +127,7 @@ class QdrantDB(VectorDBInterface):
             self.client.search(collection_name=collection_name,query_vector=vector,limit=limit)    
         else:
             self.logger.error("Collection not found")
-            return False    
+            return False 
+
+            
+               
