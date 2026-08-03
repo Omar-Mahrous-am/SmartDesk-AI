@@ -36,4 +36,8 @@ class ResponseSignal(Enum):
     FILE_ID_ERROR = "file_id_error"
     NO_FILES_ERROR = "no_files_found"
     PROCESSING_FAILED = "processing_failed"
-    PROCESSING_SUCCESS = "processing_success"
+    PROCESSING_SUCCESS = "processing_success"
+    PROJECT_NOT_FOUND_ERROR="project_not_found"
+    INSERT_INTO_VECTOR_DB_SUCCESS="insert_into_vector_db_success"
+    INSERT_INTO_VECTOR_DB_FAILED="insert_into_vector_db_failed"
+
