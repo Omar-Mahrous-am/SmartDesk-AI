@@ -15,7 +15,7 @@ from src.controllers import DataController, ProjectController, ProcessController
 from src.models.enums.ResponseSignal import ResponseSignal
 from src.schemas.data import ProcessRequest
 from src.models.ProjectModel import ProjectModel
-from src.models.ChunkModek import ChunkModel
+from src.models.ChunkModel import ChunkModel
 from src.models.AssetModel import AssetModel
 from src.models.db_schemas import DataChunk, Asset
 from src.models.enums.AssetTypeEnum import AssetTypeEnum

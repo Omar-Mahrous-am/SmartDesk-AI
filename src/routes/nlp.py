@@ -4,11 +4,11 @@ import os
 import logging
 import aiofiles
 from src.helpers.config import get_settings, Settings
-from src.controllers import DataController, ProjectController, ProcessController
+from src.controllers import DataController, ProjectController, ProcessController,NLPController
 from src.models.enums.ResponseSignal import ResponseSignal
 from src.schemas.data import ProcessRequest
 from src.models.ProjectModel import ProjectModel
-from src.models.ChunkModek import ChunkModel
+from src.models.ChunkModel import ChunkModel
 from src.models.AssetModel import AssetModel
 from src.models.db_schemas import DataChunk, Asset
 from src.models.enums.AssetTypeEnum import AssetTypeEnum
@@ -27,7 +27,53 @@ async def index_project(request: Request, project_id: str,push_request:PushReque
     """
     Index all chunks of a project to the vector database.
     """
-    pass
+    project_model= await ProjectModel.create_instance(db_client=request.app.db_client)
+
+    chunk_model= await ChunkModel.create_instance(db_client=request.app.db_client)
+    
+    project= project_model.get_project_or_create_one(project_id=project_id)
+
+    if not project:
+        return JSONResponse(status_code=status.HTTP_404_NOT_FOUND, content={"signal": ResponseSignal.PROJEXT_NOT_FOUND_ERROR.value})
+
+    nlp_controller_instance=NLPController(vectordb_client=request.app.vectordb_client,generation_client=request.app.generation_client,embedding_client=request.app.embedding_client)
+
+    inserted_count=0
+    has_records=True
+    page_number=1
+    
+    while has_records:
+        page_chunks=chunk_model.get_project_chunks(project_id=project.project_id,page_number=page_number,page_size=push_request.page_size)
+        
+        if len(page_chunks):
+            page_number+=1
+            
+        if len(page_chunks)==0:
+            has_records=False
+            break
+
+
+        is_inserted =nlp_controller_instance.index_into_vectordb(project=project,chunks=page_chunks,do_rest=push_request.do_rest) 
+        inserted_count+=len(page_chunks)
+
+        if not is_inserted:
+            return JSONResponse(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, content={"signal": ResponseSignal.INSERT_INTO_VECTOR_DB_FAILED.value})
+    
+    
+    return JSONResponse(status_code=status.HTTP_200_OK, content={"signal": ResponseSignal.INSERT_INTO_VECTOR_DB_SUCCESS.value,
+                                                                "inserted_count":inserted_count})
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
