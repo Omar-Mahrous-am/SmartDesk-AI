@@ -69,6 +69,29 @@ class NLPController(BaseController):
         return search_results
 
 
+    def answer_rag_question(self,project:project,query:str,limit:int=10):
+
+        #retrieve related documents from vector db
+        
+        retrieved_results=self.search_vector_db_collection(project=project,text=query,limit=limit)
+        if not retrieved_results:
+            return False
+        
+        #format LLM prompt
+
+        system_prompt=""" 
+        
+        
+        
+        
+        
+        
+         """
+
+
+        
+
+
         
 
         
