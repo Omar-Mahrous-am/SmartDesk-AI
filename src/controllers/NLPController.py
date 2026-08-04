@@ -61,13 +61,15 @@ class NLPController(BaseController):
             return False
 
         
-        search_results=self.vectordb_client.search(collection_name=collection_name,query_vector=vector,limit=limit)
+        search_results=self.vectordb_client.serach_by_vector(collection_name=collection_name,query_vector=vector,limit=limit)
 
         if not search_results:
             return False
        
-        return json.loads(json.dumps(search_results,default=lambda x:x.__dict__))
+        return search_results
 
+
+        
 
         
 

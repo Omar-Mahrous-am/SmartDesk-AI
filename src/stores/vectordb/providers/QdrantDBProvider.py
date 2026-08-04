@@ -3,7 +3,7 @@ from src.stores.vectordb.VectorDBInterface import VectorDBInterface
 import logging
 from src.stores.vectordb.VectorDBEnums import DistanceMethodEnum
 from qdrant_client import QdrantClient, models
-
+from src.models.db_schemas import RetrivedDocument  
 
 
 logger = logging.getLogger(__name__)    
@@ -124,10 +124,11 @@ class QdrantDB(VectorDBInterface):
     def serach_by_vector(self,collection_name:str,vector:List[float],limit:int=5):
         
         if self.is_collection_exists(collection_name=collection_name):
-            self.client.search(collection_name=collection_name,query_vector=vector,limit=limit)    
+            results=self.client.search(collection_name=collection_name,query_vector=vector,limit=limit) 
+            return [RetrivedDocument(**{"score":result.score,"text":result.payload["text"]}) for result in results]   
         else:
             self.logger.error("Collection not found")
             return False 
 
-            
-               
+
+
