@@ -6,4 +6,5 @@ before it is persisted to MongoDB.
 """
 from .data_chunk import DataChunk
 from .project import project
-from .asset import Asset 
+from .asset import Asset 
+from .data_chunk import RetrivedDocument

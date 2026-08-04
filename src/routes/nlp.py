@@ -12,7 +12,8 @@ from src.models.ChunkModel import ChunkModel
 from src.models.AssetModel import AssetModel
 from src.models.db_schemas import DataChunk, Asset
 from src.models.enums.AssetTypeEnum import AssetTypeEnum
-from src.schemas.nlp import PushRequest ,SearchRequest    
+from src.schemas.nlp import PushRequest ,SearchRequest
+from src.models.db_schemas import RetrivedDocument    
 logger = logging.getLogger('uvicorn.error')
 
 app_settings = Settings()
@@ -108,7 +109,10 @@ async def index_project(request: Request, project_id: str,push_request:PushReque
 
 
         return JSONResponse(status_code=status.HTTP_200_OK, content={"signal": ResponseSignal.INSERT_INTO_VECTOR_DB_SUCCESS.value,
-                                                                    "search_results":results})
+                                                                    "search_results":[result.dict() for result in results]})
+
+
+                                                    
         
 
 

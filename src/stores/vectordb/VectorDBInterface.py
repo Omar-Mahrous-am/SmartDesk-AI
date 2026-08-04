@@ -1,5 +1,7 @@
 from abc import ABC , abstractmethod
 from typing import List
+from src.models.db_schemas import RetrivedDocument  
+
 class VectorDBInterface(ABC):
     
     @abstractmethod
@@ -44,6 +46,6 @@ class VectorDBInterface(ABC):
         pass
 
     @abstractmethod
-    def serach_by_vector(self,collection_name:str,vector:List[float],limit:int=5):
+    def serach_by_vector(self,collection_name:str,vector:List[float],limit:int=5)->List[RetrivedDocument]:
         pass
     
