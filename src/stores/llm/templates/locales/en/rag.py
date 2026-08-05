@@ -1,6 +1,7 @@
 ###RAG TEMPLATE ###
 from string import Template 
-system_prompt=[
+
+system_prompt=Template([
 "You are an assistant to generate a response based on the context provided by the user. ",
 "\n" ,
 "Your role is to generate a response that is accurate and concise, based on the context provided by the documents",
@@ -11,7 +12,7 @@ system_prompt=[
 "\n",
 "Your answer should be in the same language the user asked the question in",
 
-]
+])
 
 #Document
 document_prompt=Template("\n".join(["##Document No: $doc_num","###Content: $chunk_text"]))

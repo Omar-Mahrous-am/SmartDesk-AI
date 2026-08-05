@@ -22,6 +22,7 @@ from motor.motor_asyncio import AsyncIOMotorClient
 from src.helpers import config
 from src.stores.llm import LLMProviderFactory
 from src.stores.vectordb import VectorDBProviderFactory
+from src.stores.llm.templates.template_parser import TemplateParser
 
 
 
@@ -67,6 +68,11 @@ async def start_up_span():
 
     app.vectordb_client=VectorDBProviderFactory.create(provider=settings.VECTORDB_BACKEND)
     app.vectordb_client.connect()
+
+    app.template_parser=TemplateParser(language=settings.PRIMARY_LANGUAGE,default_language=settings.DEFAULT_LANGUAGE)
+
+
+    
 
 
 
