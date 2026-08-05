@@ -26,6 +26,8 @@ class CohereProvider(LLMInterface):
 
         self.logger=logging.getLogger(__name__)
 
+        self.enums=COHEREEnums
+
 
     def set_generation_model(self, model_id:str) -> None:
         self.generation_model_id = model_id

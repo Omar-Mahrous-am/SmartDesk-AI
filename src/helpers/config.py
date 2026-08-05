@@ -55,6 +55,11 @@ class Settings(BaseSettings):
     VECTOR_DB_PATH:str
     VECTOR_DB_DISTANCE_METHOD:str    
 
+    
+    DEFAULT_LANGUAGE:str="en"
+
+    PRIMARY_LANGUAGE:str="en"
+
 
     class Config:
         env_file=".env"

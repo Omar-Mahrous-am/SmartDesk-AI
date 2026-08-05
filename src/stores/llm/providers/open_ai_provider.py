@@ -25,10 +25,12 @@ class OpenAIProvider(LLMInterface):
 
         self.client=OpenAI(
             api_key=self.api_key,
-            base_url=self.api_url
+            base_url=self.api_url if self.api_url and len(self.api_url)>0 else None
         ) 
 
         self.logger=logging.getLogger(__name__) 
+
+        self.enums=OPENAIEnums
 
             
     
@@ -47,7 +49,7 @@ class OpenAIProvider(LLMInterface):
 
 
 
-    def generate_text(self, prompt:str,chat_history:list=None,max_output_tokens:int=None,temprature:float=None) -> str:
+    def generate_text(self, prompt:str,chat_history:list=[],max_output_tokens:int=None,temprature:float=None) -> str:
         if not self.client:
             self.logger.error("OpenAI client is not initialized")
             return None

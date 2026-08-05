@@ -45,6 +45,7 @@ class ResponseSignal(Enum):
     SEARCH_SUCCESS="search_success"
     SEARCH_FAILED="search_failed"
     INSERT_INTO_VECTOR_DB_SUCCESS="insert_into_vector_db_success"
-    INSERT_INTO_VECTOR_DB_FAILED="insert_into_vector_db_failed"    
-
+    INSERT_INTO_VECTOR_DB_FAILED="insert_into_vector_db_failed" 
+    RAG_ANSWER_SUCCESS="rag_answer_success"
+    RAG_ANSWER_FAILED="rag_answer_failed"
 
