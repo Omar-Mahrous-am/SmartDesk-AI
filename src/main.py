@@ -5,7 +5,6 @@ This module initializes the FastAPI application, loads environment variables,
 establishes the database connection to MongoDB, and registers the application routes.
 It serves as the central hub tying the project's infrastructure and routing together.
 """
-from src.routes import nlp_index_push
 import os
 from fastapi import FastAPI
 from dotenv import load_dotenv
@@ -19,8 +18,8 @@ load_dotenv("src/.env")
 
 from src.routes import base, data,nlp
 from src.helpers import config
-from src.stores.llm import LLMProviderFactory
-from src.stores.vectordb import VectorDBProviderFactory
+from src.stores.llm.LLMProviderFactory import LLMProviderFactory
+from src.stores.vectordb.VectorDBProviderFactory import VectorDBProviderFactory
 from src.stores.llm.templates.template_parser import TemplateParser
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 from sqlalchemy.orm import sessionmaker
@@ -68,7 +67,8 @@ async def start_up_span():
 
     #vector_db_client
 
-    app.vectordb_client=VectorDBProviderFactory.create(provider=settings.VECTORDB_BACKEND)
+    vectordb_provider_factory = VectorDBProviderFactory(settings)
+    app.vectordb_client = vectordb_provider_factory.create(vector_db=settings.VECTOR_DB_BACKEND)
     app.vectordb_client.connect()
 
     app.template_parser=TemplateParser(language=settings.PRIMARY_LANGUAGE,default_language=settings.DEFAULT_LANGUAGE)

@@ -20,13 +20,15 @@ class CohereProvider(LLMInterface):
         self.embeddings_model_id=None
         self.embedding_size=None
 
-        self.client=cohere.Client(
-            api_key=self.api_key
-        ) 
-
         self.logger=logging.getLogger(__name__)
-
         self.enums=COHEREEnums
+
+        # Only initialize the client if an API key is provided
+        self.client = None
+        if self.api_key and len(self.api_key) > 0:
+            self.client = cohere.Client(api_key=self.api_key)
+        else:
+            self.logger.warning("Cohere API key is not set. Client will not be initialized.")
 
 
     def set_generation_model(self, model_id:str) -> None:
@@ -100,9 +102,5 @@ class CohereProvider(LLMInterface):
         
 
 
-
-        def construct_prompt(self,prompt:str) -> dict:
-            return {'role':'USER','content':self.process_text(prompt)}
-
-
-
+    def construct_prompt(self, prompt: str, role: str) -> dict:
+        return {'role': role, 'content': self.process_text(prompt)}

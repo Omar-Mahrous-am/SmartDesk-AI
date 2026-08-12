@@ -48,7 +48,7 @@ async def upload_data(request: Request, project_id: int, file: UploadFile = File
     """
     # Ensure the project exists in the database
     project_model = await ProjectModel.create_instance(
-        db_client=request.app.mongodb
+        db_client=request.app.db_client
     )
 
     project = await project_model.get_project_or_create_one(

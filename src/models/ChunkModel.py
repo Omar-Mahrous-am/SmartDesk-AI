@@ -6,7 +6,7 @@ related to storing and retrieving text chunks generated during document processi
 These chunks are typically used in Retrieval-Augmented Generation (RAG) pipelines.
 """
 from .BaseDataModel import BaseDataModel
-from .db_schemas.data_chunk import DataChunk    
+from .db_schemas import DataChunk    
 from .enums.DataBaseEnum import DataBaseEnum
 from bson.objectid import ObjectId
 from pymongo import InsertOne

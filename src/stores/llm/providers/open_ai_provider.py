@@ -23,14 +23,18 @@ class OpenAIProvider(LLMInterface):
         self.embeddings_model_id=None
         self.embedding_size=None
 
-        self.client=OpenAI(
-            api_key=self.api_key,
-            base_url=self.api_url if self.api_url and len(self.api_url)>0 else None
-        ) 
-
-        self.logger=logging.getLogger(__name__) 
-
+        self.logger=logging.getLogger(__name__)
         self.enums=OPENAIEnums
+
+        # Only initialize the client if an API key is provided
+        self.client = None
+        if self.api_key and len(self.api_key) > 0:
+            self.client = OpenAI(
+                api_key=self.api_key,
+                base_url=self.api_url if self.api_url and len(self.api_url) > 0 else None
+            )
+        else:
+            self.logger.warning("OpenAI API key is not set. Client will not be initialized.")
 
             
     
@@ -76,21 +80,9 @@ class OpenAIProvider(LLMInterface):
         return response.choices[0].message.content  
 
 
-    def construct_prompt(self,prompt:str,role:str) -> list[]:
+    def construct_prompt(self,prompt:str,role:str) -> dict:
 
         return {'role':role,'content':self.process_text(prompt)}
-
-
-
-        
-    
-
-    def embed_text(self, text:str,document_type:str) -> list[float]:
-        raise NotImplementedError("embed_text method is not implemented yet")
-    
-
-    def construct_prompt(self,prompt:str,role:str) -> str:
-        raise NotImplementedError("construct_prompt method is not implemented yet")
 
 
     def embed_text(self, text:str,document_type:str=None) -> list[float]:

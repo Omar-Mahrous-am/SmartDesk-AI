@@ -1,7 +1,7 @@
 from src.stores.vectordb.VectorDBInterface import VectorDBInterface
 from src.stores.vectordb.VectorDBEnums import VectorDBEnum
-from src.stores.vectordb.providers.QdrantDB import QdrantDBProvider
-from controllers.BaseController import BaseController   
+from src.stores.vectordb.providers.QdrantDBProvider import QdrantDBProvider
+from src.controllers.BaseController import BaseController
 
 class VectorDBProviderFactory:
     def __init__(self,config):

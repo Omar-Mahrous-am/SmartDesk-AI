@@ -9,6 +9,7 @@ from sqlalchemy import Index
 
 
 
+
 class Asset(SQLAlchemyBase):
     __tablename__="assets"
 
@@ -24,16 +25,19 @@ class Asset(SQLAlchemyBase):
     asset_project_id=Column(Integer,ForeignKey('projects.project_id'),nullable=False)
 
     project=relationship("Project",back_populates="assets")
-
+    chunks=relationship("DataChunk",back_populates="asset")
 
     created_at=Column(DateTime(timezone=True),server_default=func.now(),nullable=False)
     updated_at=Column(DateTime(timezone=True),onupdate=func.now(),nullable=True)
 
     
+    
+    
     __table_args__ = (
         Index('ix_asset_project_id',asset_project_id),
         Index('ix_asset_type',asset_type),
     )
+
 
     
     

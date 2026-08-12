@@ -6,9 +6,8 @@ database operations related to the 'projects' collection in MongoDB. It includes
 functionality for creating projects, retrieving them, and implementing pagination.
 """
 from .BaseDataModel import BaseDataModel
-from .db_schemas import project
+from .db_schemas import Project
 from .enums.DataBaseEnum import DataBaseEnum
-from src.models.db_schemas.Project import Project
 from sqlalchemy.future import select
 from sqlalchemy import func
 
@@ -49,7 +48,7 @@ class ProjectModel(BaseDataModel):
         """
         instance = cls(db_client)
         return instance 
-    async def create_project(self, project: project):
+    async def create_project(self, project: Project):
         """
         Inserts a new project document into the database.
 
@@ -70,7 +69,7 @@ class ProjectModel(BaseDataModel):
         return project
 
 
-    async def get_project_or_create_one(self, project_id: str = None, existing_project: project = None):
+    async def get_project_or_create_one(self, project_id: str = None, existing_project: Project = None):
         """
         Retrieves a project by its string ID, creating it if it doesn't exist.
 
@@ -87,10 +86,13 @@ class ProjectModel(BaseDataModel):
         async with self.db_client() as session:
             async with session.begin():
                 query=select(Project).where(Project.project_id==project_id)
-                project=query.scalar_one_or_none()
+                
+                project=await session.execute(query)
+                project=project.scalar_one_or_none()
+                
                 if project is None:
                     project_rec=Project(project_id=project_id)                    
-                    project=self.create_project(project=project_rec)
+                    project=await self.create_project(project=project_rec)
                     return  project
                 else:
                     return project          

@@ -8,7 +8,7 @@ from src.models.db_schemas import RetrivedDocument
 
 logger = logging.getLogger(__name__)    
 
-class QdrantDB(VectorDBInterface):
+class QdrantDBProvider(VectorDBInterface):
     def __init__(self,db_path:str=None, distance_method:str=None):
         self.db_path=db_path
         #distance method enum check 
@@ -24,6 +24,7 @@ class QdrantDB(VectorDBInterface):
 
 
         self.client=None
+        self.logger=logger
         self.logger.info("QdrantDB initialized")
         self.logger.info(f"DB Path: {self.db_path}")
         self.logger.info(f"Distance Method: {self.distance_method}")
@@ -88,7 +89,7 @@ class QdrantDB(VectorDBInterface):
 
     
     
-    def insert_many_collections(self,collection_name:str,texts:list=None,vectors:list,metadata:List[dict]=None,record_ids:List[str]=None,batch_size:int=50):
+    def insert_many_collections(self,collection_name:str,texts:list=None,vectors:list=None,metadata:List[dict]=None,record_ids:List[str]=None,batch_size:int=50):
 
         if metadata is None:
             metadata=[None] * len(vectors)
@@ -106,8 +107,17 @@ class QdrantDB(VectorDBInterface):
                 batch_end=i+batch_size
 
                 try:
-                    self.client.upload_records(collection_name=collection_name,
-                                    records=models.Record(id=record_ids[i:batch_end],vector=vectors[i:batch_end],payload=metadata[i:batch_end]))
+                    self.client.upload_records(
+                        collection_name=collection_name,
+                        records=[
+                            models.Record(
+                                id=record_ids[j],
+                                vector=vectors[j],
+                                payload={"text": texts[j], **(metadata[j] or {})}
+                            )
+                            for j in range(i, min(batch_end, len(texts)))
+                        ]
+                    )
                 except Exception as e:
                     self.logger.error(e)
                     return False
