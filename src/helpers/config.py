@@ -27,8 +27,13 @@ class Settings(BaseSettings):
     APP_NAME:str
     VERSION:str
     OPEN_API_KEYS:str
-    MONGODB_URL:str
-    MONGODB:str
+
+
+    POSTGRES_USERNAME:str
+    POSTGRES_PASSWORD:str
+    POSTGRES_HOST:str
+    POSTGRES_PORT:int
+    POSTGRES_MAIN_DATABASE:str
 
 
 # ==========LLM Config ================

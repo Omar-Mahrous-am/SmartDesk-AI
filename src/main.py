@@ -18,12 +18,12 @@ from dotenv import load_dotenv
 load_dotenv("src/.env")
 
 from src.routes import base, data,nlp
-from motor.motor_asyncio import AsyncIOMotorClient
 from src.helpers import config
 from src.stores.llm import LLMProviderFactory
 from src.stores.vectordb import VectorDBProviderFactory
 from src.stores.llm.templates.template_parser import TemplateParser
-
+from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
+from sqlalchemy.orm import sessionmaker
 
 
 app = FastAPI()
@@ -43,11 +43,13 @@ async def start_up_span():
     app state for global access.
     """
     settings = config.get_settings()
+
+    postgres_conn = f"postgresql+asyncpg://{settings.POSTGRES_USERNAME}:{settings.POSTGRES_PASSWORD}@{settings.POSTGRES_HOST}:{settings.POSTGRES_PORT}/{settings.POSTGRES_MAIN_DATABASE}"
     
-    # Initialize asynchronous MongoDB client using Motor
-    app.mongodb_client = AsyncIOMotorClient(settings.MONGODB_URL)
-    # Store the specific database instance for use in controllers/models
-    app.mongodb = app.mongodb_client[settings.MONGODB]
+    app.db_engine=create_async_engine(postgres_conn,echo=True)
+
+    app.db_client=sessionmaker(app.db_engine,class_=AsyncSession,expire_on_commit=False)
+    
     
     llm_provider_factory = LLMProviderFactory(settings)
 
@@ -93,10 +95,11 @@ async def shutdown_span():
     This function is triggered when the FastAPI server stops. It ensures
     that the MongoDB connection is properly closed to prevent connection leaks.
     """
-    app.mongodb_client.close()
+    app.db_engine.dispose()
     print("Closed MongoDB connection")  
     app.vectordb_client.disconnect()
     print("Closed VectorDB connection")
+
 
 
 

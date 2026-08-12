@@ -9,6 +9,7 @@ from .BaseDataModel import BaseDataModel
 from .db_schemas import Asset
 from .enums.DataBaseEnum import DataBaseEnum
 from bson import ObjectId
+from sqlalchemy import select
 
 class AssetModel(BaseDataModel):
     """
@@ -27,8 +28,7 @@ class AssetModel(BaseDataModel):
             db_client (object): The active MongoDB database instance.
         """
         super().__init__(db_client=db_client)
-        self.collection = self.db_client[DataBaseEnum.COLLECTION_ASSET_NAME.value]
-
+        self.db_client = db_client
     @classmethod
     async def create_instance(cls, db_client: object):
         """
@@ -44,30 +44,7 @@ class AssetModel(BaseDataModel):
             AssetModel: A fully initialized instance of the model.
         """
         instance = cls(db_client)
-        await instance.init_collection()
         return instance
-
-    async def init_collection(self):
-        """
-        Initializes the collection in the database.
-
-        Checks if the assets collection exists. If it doesn't, it forces
-        the creation of the collection (by accessing it) and builds all
-        required indexes defined in the `Asset` schema to ensure query performance
-        and data integrity (e.g., unique constraints).
-        """
-        all_collections = await self.db_client.list_collection_names()
-        if DataBaseEnum.COLLECTION_ASSET_NAME.value not in all_collections:
-            self.collection = self.db_client[DataBaseEnum.COLLECTION_ASSET_NAME.value]
-            
-            # Fetch index definitions from the Pydantic schema and create them
-            indexes = Asset.get_indexes()
-            for index in indexes:
-                await self.collection.create_index(
-                    index["key"],
-                    name=index["name"],
-                    unique=index["unique"]
-                )
 
     async def create_asset(self, asset: Asset):
         """
@@ -79,12 +56,11 @@ class AssetModel(BaseDataModel):
         Returns:
             Asset: The asset model updated with the generated database ID.
         """
-        # Convert the Pydantic model to a dictionary, respecting aliases (e.g., '_id')
-        # and excluding unset values to keep the database document clean
-        result = await self.collection.insert_one(asset.dict(by_alias=True, exclude_unset=True))
-        
-        # Populate the Pydantic model with the generated MongoDB ObjectId
-        asset.id = result.inserted_id
+        async with self.db_client() as session:
+            async with session.begin():
+                session.add(asset)
+            await session.commit()
+            await session.refresh()
 
         return asset
 
@@ -99,17 +75,12 @@ class AssetModel(BaseDataModel):
         Returns:
             list[Asset]: A list of populated Asset Pydantic models.
         """
-        # Convert the string ID to a MongoDB ObjectId if necessary for querying
-        records = await self.collection.find({
-            "asset_project_id": ObjectId(asset_project_id) if isinstance(asset_project_id, str) else asset_project_id,
-            "asset_type": asset_type,
-        }).to_list(length=None)
-
-        # Deserialize the raw database dictionaries back into Pydantic models
-        return [
-            Asset(**record)
-            for record in records
-        ]
+        async with self.db_client() as session:
+            async with session.begin():
+                query=select(Asset).where(Asset.asset_project_id==asset_project_id,Asset.asset_type==asset_type)
+                results=await session.execute(query).scalars().all() 
+                return results
+        
 
     async def get_asset_record(self, asset_project_id: str, asset_name: str):
         """
@@ -122,13 +93,11 @@ class AssetModel(BaseDataModel):
         Returns:
             Asset | None: The populated Asset model if found, otherwise None.
         """
-        record = await self.collection.find_one({
-            "asset_project_id": ObjectId(asset_project_id) if isinstance(asset_project_id, str) else asset_project_id,
-            "asset_name": asset_name,
-        })
+        async with self.db_client() as session:
+            async with session.begin():
+                query=select(Asset).where(Asset.asset_project_id==asset_project_id,Asset.asset_name==asset_name)
+                result=await session.execute(query).scalar_one_or_none() 
+                return result
 
-        if record:
-            return Asset(**record)
         
-        return None
 

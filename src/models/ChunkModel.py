@@ -10,7 +10,8 @@ from .db_schemas.data_chunk import DataChunk
 from .enums.DataBaseEnum import DataBaseEnum
 from bson.objectid import ObjectId
 from pymongo import InsertOne
-
+from sqlalchemy.future import select
+from sqlalchemy import delete,func
 
 class ChunkModel(BaseDataModel):
     """
@@ -29,7 +30,7 @@ class ChunkModel(BaseDataModel):
             db_client (object): The active MongoDB database instance.
         """
         super().__init__(db_client)
-        self.collection = self.db_client[DataBaseEnum.COLLECTION_CHUNK_NAME.value]
+        self.db_client = db_client
 
     @classmethod
     async def create_instance(cls, db_client: object):
@@ -43,27 +44,7 @@ class ChunkModel(BaseDataModel):
             ChunkModel: A fully initialized instance with the collection and indexes prepared.
         """
         instance = cls(db_client)
-        await instance.init_collection()
         return instance 
-
-    async def init_collection(self, db_client: object = None):
-        """
-        Initializes the chunks collection and creates necessary indexes.
-
-        This ensures that indexes (like the unique compound index on project ID and order)
-        are created if the collection is being initialized for the first time.
-        """
-        all_collection = await self.db_client.list_collection_names()
-
-        if DataBaseEnum.COLLECTION_CHUNK_NAME.value not in all_collection:
-            self.collection = self.db_client[DataBaseEnum.COLLECTION_CHUNK_NAME.value]
-            
-            # Fetch and apply indexes defined in the DataChunk schema
-            indexes = DataChunk.get_indexes()
-            for index in indexes:
-                await self.collection.create_index(index["key"], unique=index["unique"], name=index["name"])
-        else:
-            self.collection = self.db_client[DataBaseEnum.COLLECTION_CHUNK_NAME.value]    
 
     async def create_chunk(self, chunk: DataChunk):
         """
@@ -75,9 +56,13 @@ class ChunkModel(BaseDataModel):
         Returns:
             DataChunk: The chunk model updated with the database's inserted _id.
         """
-        result = await self.collection.insert_one(chunk.dict())
-        chunk._id = result.inserted_id
-        return chunk
+        async with self.db_client() as session:
+            async with session.begin():
+                session.add(chunk)
+            await session.commit()
+            await session.refresh()
+
+            return chunk
 
     async def get_chunk(self, chunk_id: str = None):
         """
@@ -89,12 +74,14 @@ class ChunkModel(BaseDataModel):
         Returns:
             DataChunk | None: The populated chunk model if found, otherwise None.
         """
-        record = await self.collection.find_one(
-            {"_id": ObjectId(chunk_id)}
-        )
-        if record is None:
-            return None 
-        return DataChunk(**record) 
+        async with self.db_client() as session:
+            async with session.begin():
+                query=select(DataChunk).where(DataChunk.chunk_id==chunk_id)
+                chunk=query.scalar_one_or_none()
+                if chunk is None:
+                    return None
+                else:
+                    return chunk 
 
     async def insert_many_chunks(self, chunks: list, batch_size: int = 100):
         """
@@ -111,14 +98,17 @@ class ChunkModel(BaseDataModel):
         Returns:
             int: The total number of chunks processed.
         """
-        for i in range(0, len(chunks), batch_size):
-            # Slice the chunks list into manageable batches
-            batch = chunks[i:i + batch_size]
+        async with self.db_client() as session:
+            async with session.begin():
+                for i in range(0, len(chunks), batch_size):
+                    # Slice the chunks list into manageable batches
+                    batch = chunks[i:i + batch_size]
             
-            # Prepare and execute the bulk write operation for the current batch
-            await self.collection.bulk_write([InsertOne(chunk.dict()) for chunk in batch])
+                # Prepare and execute the bulk write operation for the current batch
+                    session.add_all(batch)
+                await session.commit()
 
-        return len(chunks)
+            return len(chunks)
 
     async def delete_chunks_by_project_id(self, project_id: ObjectId):
         """
@@ -133,17 +123,22 @@ class ChunkModel(BaseDataModel):
         Returns:
             int: The number of chunk documents deleted.
         """
-        result = await self.collection.delete_many({"chunk_project_id": project_id})
-
-        return result.deleted_count 
+        async with self.db_client() as session:
+            async with session.begin():
+                query=delete(DataChunk).where(DataChunk.chunk_project_id==project_id)
+                results=session.execute(query)
+                await session.commit()
+            return results.rowcount
 
 
     async def get_project_chunks(self,project_id:ObjectId,page_number:int=1,page_size:int=50):
-        
-        skip_size=page_size*(page_number-1)
-        records=await self.collection.find({"chunk_project_id":project_id},skip=skip_size,limit=page_size).to_list(length=None) \
-        
-        return[DataChunk(**record) for record in records]
+        async with self.db_client() as session:
+            async with session.begin():
+                skip_size=page_size*(page_number-1)
+                query=select(DataChunk).where(DataChunk.chunk_project_id==project_id).offset(skip_size).limit(page_size)
+                result=await session.execute(query).scalars().all() 
+                return result
+
         
 
 
