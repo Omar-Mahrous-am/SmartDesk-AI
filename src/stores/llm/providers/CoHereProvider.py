@@ -90,17 +90,17 @@ class CohereProvider(LLMInterface):
 
         response = self.client.embed(
             model=self.embeddings_model_id,
-            text=[self.process_text(text)],
+            texts=[self.process_text(text)],
             input_type=input_type
         )
 
-        if not response or not response.embeddings or response.embeddings.float:
+        if not response or not response.embeddings:
             self.logger.error("No Embeddings generated from Cohere client")
             return None
 
-        return response.embedding.float[0]
+        return response.embeddings[0]
         
 
 
-    def construct_prompt(self, prompt: str, role: str) -> dict:
-        return {'role': role, 'content': self.process_text(prompt)}
+    def construct_prompt(self, prompt: str, role: str="user") -> dict:
+        return {'role': role, 'message': self.process_text(prompt)}

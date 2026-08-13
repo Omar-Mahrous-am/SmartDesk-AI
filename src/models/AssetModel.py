@@ -60,7 +60,7 @@ class AssetModel(BaseDataModel):
             async with session.begin():
                 session.add(asset)
             await session.commit()
-            await session.refresh()
+            await session.refresh(asset)
 
         return asset
 
@@ -78,11 +78,12 @@ class AssetModel(BaseDataModel):
         async with self.db_client() as session:
             async with session.begin():
                 query=select(Asset).where(Asset.asset_project_id==asset_project_id,Asset.asset_type==asset_type)
-                results=await session.execute(query).scalars().all() 
+                result = await session.execute(query)
+                results = result.scalars().all()
                 return results
         
 
-    async def get_asset_record(self, asset_project_id: str, asset_name: str):
+    async def get_asset_record(self, asset_project_id: str, asset_id: str):
         """
         Retrieves a single asset record by its project ID and name.
 
@@ -95,8 +96,9 @@ class AssetModel(BaseDataModel):
         """
         async with self.db_client() as session:
             async with session.begin():
-                query=select(Asset).where(Asset.asset_project_id==asset_project_id,Asset.asset_name==asset_name)
-                result=await session.execute(query).scalar_one_or_none() 
+                query=select(Asset).where(Asset.asset_project_id==asset_project_id,Asset.asset_id==asset_id)
+                result = await session.execute(query)
+                result = result.scalar_one_or_none()
                 return result
 
         

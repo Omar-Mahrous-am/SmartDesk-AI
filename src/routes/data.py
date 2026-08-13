@@ -91,7 +91,7 @@ async def upload_data(request: Request, project_id: int, file: UploadFile = File
 
     # Store the asset record in the database
     asset_model = await AssetModel.create_instance(
-        db_client=request.app.mongodb
+        db_client=request.app.db_client
     )
 
     asset_resource = Asset(
@@ -135,7 +135,7 @@ async def process_endpoint(request: Request, project_id: int, process_request: P
 
     # Retrieve project context
     project_model = await ProjectModel.create_instance(
-        db_client=request.app.mongodb
+        db_client=request.app.db_client
     )
 
     project = await project_model.get_project_or_create_one(
@@ -143,7 +143,7 @@ async def process_endpoint(request: Request, project_id: int, process_request: P
     )
 
     asset_model = await AssetModel.create_instance(
-        db_client=request.app.mongodb
+        db_client=request.app.db_client
     )
 
     # Determine which files need to be processed
@@ -152,7 +152,7 @@ async def process_endpoint(request: Request, project_id: int, process_request: P
         # Process a single specific file
         asset_record = await asset_model.get_asset_record(
             asset_project_id=project.project_id,
-            asset_name=process_request.file_id
+            asset_id=int(process_request.file_id)
         )
 
         if asset_record is None:
@@ -193,7 +193,7 @@ async def process_endpoint(request: Request, project_id: int, process_request: P
     no_files = 0
 
     chunk_model = await ChunkModel.create_instance(
-        db_client=request.app.mongodb
+        db_client=request.app.db_client
     )
 
     # Optionally clear old chunks before generating new ones

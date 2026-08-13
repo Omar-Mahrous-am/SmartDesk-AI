@@ -27,6 +27,7 @@ class Settings(BaseSettings):
     APP_NAME:str
     VERSION:str
     OPEN_API_KEYS:str
+    FILE_DEFAULT_CHUNK_SIZE:int
 
 
     POSTGRES_USERNAME:str

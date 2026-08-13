@@ -1,3 +1,4 @@
+from importlib.resources import path
 from typing import List
 from src.stores.vectordb.VectorDBInterface import VectorDBInterface
 import logging
@@ -5,14 +6,14 @@ from src.stores.vectordb.VectorDBEnums import DistanceMethodEnum
 from qdrant_client import QdrantClient, models
 from src.models.db_schemas import RetrivedDocument  
 
-
-logger = logging.getLogger(__name__)    
+ 
 
 class QdrantDBProvider(VectorDBInterface):
     def __init__(self,db_path:str=None, distance_method:str=None):
         self.db_path=db_path
         #distance method enum check 
         self.distance_method=None
+        self.logger=logging.getLogger(__name__)
         if distance_method==DistanceMethodEnum.COSINE.value:
             self.distance_method=DistanceMethodEnum.COSINE.value
         elif distance_method==DistanceMethodEnum.DOT_PRODUCT.value:
@@ -24,14 +25,14 @@ class QdrantDBProvider(VectorDBInterface):
 
 
         self.client=None
-        self.logger=logger
+        
         self.logger.info("QdrantDB initialized")
         self.logger.info(f"DB Path: {self.db_path}")
         self.logger.info(f"Distance Method: {self.distance_method}")
 
     def connect(self):
         if self.db_path:
-            self.client=QdrantClient(url=self.db_path)
+            self.client=QdrantClient(path=self.db_path)
             self.logger.info("QdrantDB connected")
         else:
             self.logger.error("QdrantDB not connected")

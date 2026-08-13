@@ -6,6 +6,6 @@ class VectorDBEnum(Enum):
 
 
 class DistanceMethodEnum(Enum):
-    COSINE="cosine"
-    DOT_PRODUCT="dot"
+    COSINE="Cosine"
+    DOT_PRODUCT="Dot"
     

@@ -78,7 +78,7 @@ class DataController(BaseController):
         # Build the complete path using the base directory from BaseController
         file_path = os.path.join(
             self.files_dir,
-            project_id,
+            str(project_id),
             file_id
         )
 

@@ -43,7 +43,7 @@ class ProcessController(BaseController):
         """
         file_path = os.path.join(
             self.files_dir,
-            self.project_id,
+            str(self.project_id),
             file_id
         )
 

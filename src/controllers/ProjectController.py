@@ -40,7 +40,7 @@ class ProjectController(BaseController):
         # Construct the path by appending the project ID to the base files directory
         project_dir = os.path.join(
             self.files_dir,
-            project_id
+            str(project_id)
         )
 
         # Ensure the project directory structure exists on disk before returning

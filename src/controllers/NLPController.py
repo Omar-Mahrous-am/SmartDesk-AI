@@ -47,10 +47,13 @@ class NLPController(BaseController):
 
 
         #create_collection_if_not_exists
-        _=self.vectordb_client.create_collection(collection_name=collection_name,embedding_size=self.embedding_client.get_embedding_model_size(),do_reset=do_rest)
+        _=self.vectordb_client.create_collection(
+    collection_name=collection_name,
+    embedding_size=self.embedding_client.embedding_size,
+    do_reset=do_rest)
 
         #insert_into_vector_db
-        _=self.vectordb_client.insert_many_collections(collection_name=collection_name,texts=texts,vectors=vectors,metadata=metadata,batch_size=50,chunks_ids=chunks_ids)
+        _=self.vectordb_client.insert_many_collections(collection_name=collection_name,texts=texts,vectors=vectors,metadata=metadata,batch_size=50,record_ids=chunks_ids)
 
 
         return True
@@ -63,7 +66,7 @@ class NLPController(BaseController):
             return False
 
         
-        search_results=self.vectordb_client.serach_by_vector(collection_name=collection_name,query_vector=vector,limit=limit)
+        search_results=self.vectordb_client.serach_by_vector(collection_name=collection_name,vector=vector,limit=limit)
 
         if not search_results:
             return False
@@ -106,7 +109,7 @@ class NLPController(BaseController):
 
         chat_history=[
             self.generation_client.construct_prompt(prompt=system_prompt,
-                                                    role=self.generation_client.enums.MESSAGE_ROLE_SYSTEM.value)]
+                                                    role=self.generation_client.enums.SYSTEM.value)]
 
 
 

@@ -60,7 +60,7 @@ class ChunkModel(BaseDataModel):
             async with session.begin():
                 session.add(chunk)
             await session.commit()
-            await session.refresh()
+            await session.refresh(chunk)
 
             return chunk
 
@@ -126,7 +126,7 @@ class ChunkModel(BaseDataModel):
         async with self.db_client() as session:
             async with session.begin():
                 query=delete(DataChunk).where(DataChunk.chunk_project_id==project_id)
-                results=session.execute(query)
+                results=await session.execute(query)
                 await session.commit()
             return results.rowcount
 
@@ -136,7 +136,7 @@ class ChunkModel(BaseDataModel):
             async with session.begin():
                 skip_size=page_size*(page_number-1)
                 query=select(DataChunk).where(DataChunk.chunk_project_id==project_id).offset(skip_size).limit(page_size)
-                result=await session.execute(query).scalars().all() 
+                result=(await session.execute(query)).scalars().all() 
                 return result
 
         
