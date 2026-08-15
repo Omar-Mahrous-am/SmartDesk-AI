@@ -80,9 +80,9 @@ class OpenAIProvider(LLMInterface):
         return response.choices[0].message.content  
 
 
-    def construct_prompt(self,prompt:str,role:str) -> dict:
+    def construct_prompt(self,prompt:str,role:str="user") -> dict:
 
-        return {'role':role,'content':self.process_text(prompt)}
+        return {'role':role,'content':prompt}
 
 
     def embed_text(self, text:str,document_type:str=None) -> list[float]:
