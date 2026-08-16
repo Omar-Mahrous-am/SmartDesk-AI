@@ -11,6 +11,8 @@ class VectorDBProviderFactory:
     def create(self,vector_db:str=VectorDBEnum.QDRANT.value,db_path:str=None, distance_method:str=None)->VectorDBInterface:
         if vector_db==VectorDBEnum.QDRANT.value:
             return QdrantDBProvider(db_path=self.base_controller.get_database_path("qdrant_db"), distance_method=self.config.VECTOR_DB_DISTANCE_METHOD)
+        elif vector_db==VectorDBEnum.PGVECTOR.value:
+            return PgVectorDBProvider(db_path=self.base_controller.get_database_path("pgvector_db"), distance_method=self.config.VECTOR_DB_DISTANCE_METHOD)
         else:
             raise ValueError("Invalid vector db")
        
