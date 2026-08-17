@@ -1,18 +1,24 @@
 from src.stores.vectordb.VectorDBInterface import VectorDBInterface
-from src.stores.vectordb.VectorDBEnums import VectorDBEnum
-from src.stores.vectordb.providers.QdrantDBProvider import QdrantDBProvider
+from src.stores.vectordb.VectorDBEnums import VectorDBEnum,DistanceMethodEnum,PgVectorDistanceMethodEnum
+from src.stores.vectordb.providers import QdrantDBProvider,PGVectorProvider
 from src.controllers.BaseController import BaseController
+from sqlalchemy.orm import sessionmaker
 
 class VectorDBProviderFactory:
-    def __init__(self,config):
+    def __init__(self,config,db_client:sessionmaker=None):
         self.config=config
         self.base_controller=BaseController()
+        self.db_client=db_client
 
     def create(self,vector_db:str=VectorDBEnum.QDRANT.value,db_path:str=None, distance_method:str=None)->VectorDBInterface:
         if vector_db==VectorDBEnum.QDRANT.value:
-            return QdrantDBProvider(db_path=self.base_controller.get_database_path("qdrant_db"), distance_method=self.config.VECTOR_DB_DISTANCE_METHOD)
+            return QdrantDBProvider(db_client=self.db_client, distance_method=self.config.VECTOR_DB_DISTANCE_METHOD.value
+                                     ,index_threshold=self.config.VECTOR_DB_INDEX_THRESHOLD.value,
+                                      default_vector_size=self.config.VECTOR_DB_DEFAULT_VECTOR_SIZE.value)
         elif vector_db==VectorDBEnum.PGVECTOR.value:
-            return PgVectorDBProvider(db_path=self.base_controller.get_database_path("pgvector_db"), distance_method=self.config.VECTOR_DB_DISTANCE_METHOD)
+            return PGVectorProvider(db_client=self.db_client, distance_method=self.config.VECTOR_DB_DISTANCE_METHOD.value
+                                    ,index_threshold=self.config.VECTOR_DB_INDEX_THRESHOLD.value,
+                                    default_vector_size=self.config.VECTOR_DB_DEFAULT_VECTOR_SIZE.value)
         else:
             raise ValueError("Invalid vector db")
        

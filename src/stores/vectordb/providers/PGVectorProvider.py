@@ -9,7 +9,7 @@ import json
 
 
 class PGVectorProvider(VectorDBInterface):
-    def __init__(self,db_client=None,default_vector_size:int=786,distance_method:str=None):
+    def __init__(self,db_client=None,default_vector_size:int=786,distance_method:str=None,index_threshold:int=100):
     
         self.logger = logging.getLogger("uvicorn")
         self.db_client=db_client
@@ -30,6 +30,12 @@ class PGVectorProvider(VectorDBInterface):
         self.logger.info("PGVectorProvider initialized")
         self.logger.info(f"DB Path: {self.db_client}")
         self.logger.info(f"Distance Method: {self.distance_method}")
+
+
+
+
+    async def get_pgvector_index_name(self,collection_name:str)-> str :
+        return f"{collection_name}_vector_idx"
 
 
 
@@ -133,6 +139,70 @@ class PGVectorProvider(VectorDBInterface):
                     await session.excute(create_sql)
                     await session.commit()
             return True
+
+
+
+    async def is_index_existed(self,collection_name:str)->bool:
+        index_name=self.get_pgvector_index_name(collection_name=collection_name)
+        async with self.db_client() as session:
+            async with session.begin():
+                check_sql=sql_text(f"SELECT * FROM pg_indexes WHERE tablename='{collection_name} AND indexname='{index_name}'")
+                results=await session.execute(check_sql)
+                records=results.scalar_one_or_none()
+                
+
+        return bool(records)  
+
+
+    async def create_vector_index(self,collection_name:str,index_type:str=PgVectorVectorIndexMethodEnum.HNSW.value,index_threshold :int=100):
+
+        is_index_existed= await self.is_index_existed(collection_name=collection_name)
+
+        if is_index_existed:
+            self.logger.info(f"Index {collection_name} already exists")
+            return False
+
+        async with self.db_client() as session:
+            async with session.begin():
+                count_query=sql_text(f"""
+                SELECT COUNT(*) FROM {collection_name}
+                """)
+                record_count=await session.execute(count_query)
+                record_count=record_count.scalar_one()
+                if record_count>index_threshold:
+                    self.logger.info("Creating HNSW index")
+                    index_name=self.get_pgvector_index_name(collection_name=collection_name)
+                    create_index_sql=f"""
+                    CREATE INDEX {index_name} ON {collection_name} USING HNSW ({PgVectorTableschemaEnums.VECTOR.value} {self.distance_method})
+                    """
+                    await session.execute(sql_text(create_index_sql))
+                    await session.commit()
+                    self.logger.info(f"HNSW index {collection_name} created successfully")
+                    return True
+
+                else:
+                    self.logger.info(f"Record count is less than index threshold : {index_threshold} skipping HNSW index creation")
+                    return False
+                    
+
+
+    async def reset_vector_index(self,collection_name:str,index_type:str=PgVectorVectorIndexMethodEnum.HNSW.value):
+         
+        index_name=await self.get_pgvector_index_name(collection_name=collection_name)
+
+        
+        async with self.db_client() as session:
+            async with session.begin():
+                delete_index_sql=sql_text(f"DROP INDEX IF EXISTS {index_name}")
+                await session.execute(delete_index_sql)
+                await session.commit()
+                self.logger.info(f"Index {index_name} deleted successfully")
+                return True
+
+        return self.create_vector_index(collection_name=collection_name,index_type=index_type)
+
+
+        
 
 
     async def insert_one_collection(self,collection_name:str,
